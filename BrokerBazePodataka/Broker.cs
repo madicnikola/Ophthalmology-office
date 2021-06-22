@@ -1,10 +1,7 @@
 ﻿using Domen;
-using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BrokerBazePodataka
 {
@@ -15,7 +12,7 @@ namespace BrokerBazePodataka
 
 		public Broker()
 		{
-			konekcija = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=oft-office-db;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+			konekcija = new SqlConnection(ConfigurationManager.ConnectionStrings["OfficeDatabase"].ConnectionString);
 		}
 
 		public void OtvoriKonekciju()

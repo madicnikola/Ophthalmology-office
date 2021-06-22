@@ -7,8 +7,8 @@
     <ProjectGuid>{5F95CD81-EB37-489B-AD6D-5E8563F7A13D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SystemOperations</RootNamespace>
-    <AssemblyName>SystemOperations</AssemblyName>
+    <RootNamespace>SistemskeOperacije</RootNamespace>
+    <AssemblyName>SistemskeOperacije</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,11 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InvoiceSO\AddInvoiceSO.cs" />
-    <Compile Include="ManufacturerSO\AddNewManufacturerSO.cs" />
-    <Compile Include="ManufacturerSO\GetAllManufacturersSO.cs" />
-    <Compile Include="ProductSO\AddNewProductSO.cs" />
-    <Compile Include="ProductSO\GetAllProductsSO.cs" />
     <Compile Include="OpstaSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserSO\LoginSO.cs" />
@@ -59,6 +54,10 @@
       <Project>{d3ff40a4-b8f0-46d3-aa6f-0be096e9637d}</Project>
       <Name>Domen</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LekarSO\" />
+    <Folder Include="PacijentSO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,14 +33,13 @@
 			this.button2 = new System.Windows.Forms.Button();
 			this.lblTime = new System.Windows.Forms.Label();
 			this.dgvClient = new System.Windows.Forms.DataGridView();
-			this.lblTimer = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// button1
 			// 
 			this.button1.Location = new System.Drawing.Point(17, 16);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(192, 44);
 			this.button1.TabIndex = 0;
@@ -51,7 +50,7 @@
 			// button2
 			// 
 			this.button2.Location = new System.Drawing.Point(217, 15);
-			this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button2.Margin = new System.Windows.Forms.Padding(4);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(192, 44);
 			this.button2.TabIndex = 1;
@@ -73,33 +72,22 @@
 			// 
 			this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvClient.Location = new System.Drawing.Point(17, 90);
-			this.dgvClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.dgvClient.Margin = new System.Windows.Forms.Padding(4);
 			this.dgvClient.Name = "dgvClient";
 			this.dgvClient.Size = new System.Drawing.Size(1033, 449);
 			this.dgvClient.TabIndex = 3;
-			// 
-			// lblTimer
-			// 
-			this.lblTimer.AutoSize = true;
-			this.lblTimer.Location = new System.Drawing.Point(511, 30);
-			this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lblTimer.Name = "lblTimer";
-			this.lblTimer.Size = new System.Drawing.Size(58, 17);
-			this.lblTimer.TabIndex = 4;
-			this.lblTimer.Text = "lblTimer";
 			// 
 			// FrmServer
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1067, 554);
-			this.Controls.Add(this.lblTimer);
 			this.Controls.Add(this.dgvClient);
 			this.Controls.Add(this.lblTime);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FrmServer";
 			this.Text = "Server";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmServer_FormClosed);
@@ -116,7 +104,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.DataGridView dgvClient;
-        private System.Windows.Forms.Label lblTimer;
     }
 }
 

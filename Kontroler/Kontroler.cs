@@ -44,6 +44,7 @@ namespace KontrolerNS
 		{
 			LoginSO so = new LoginSO();
 			so.IzvrsiSO(user);
+			Console.WriteLine(so.Result);
 			return so.Result;
 		}
 

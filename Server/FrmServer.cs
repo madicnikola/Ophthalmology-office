@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
 
 namespace Server
 {
-    public partial class FrmServer : Form
+	public partial class FrmServer : Form
     {
         private Server s;
         public FrmServer()
@@ -38,14 +33,14 @@ namespace Server
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            lblTimer.Text = "Timer " + DateTime.Now.ToString("dd. MM. yyyy. HH:mm:ss");
+            lblTime.Text =  DateTime.Now.ToString("dd. MM. yyyy. HH:mm:ss");
         }
 
         private void RefreshTime()
         {
             while (true)
             {
-                lblTime.Invoke(new Action(() => lblTime.Text = DateTime.Now.ToString("dd. MM. yyyy. HH:mm:ss")));
+                lblTime.Invoke(new Action(() => lblTime.Text = DateTime.Now.ToString("dd. MM. yyyy. HH:mm")));
                 Thread.Sleep(1000);
             }
         }

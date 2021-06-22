@@ -23,13 +23,20 @@ namespace Domen
         }
 
         #region ODO
-        public string NazivTabele => "korisnikSistema";
+        public string NazivTabele => "KorisnikSistema";
 
         public string VrednostiZaInsert => $"{KorisnikId}, '{Ime}', '{Prezime}', '{Username}', '{Password}'";
 
         public string VrednostZaUpdate => null;
 
-        public string KriterijumiZaPretragu => null;
+        public string KriterijumiZaPretragu {
+			get
+			{
+				{
+					return $"Username = '{Username}' AND Password = '{Password}'";
+				}
+			}
+		}
 
         public string PrimarniKljuc => "KorisnikId";
 

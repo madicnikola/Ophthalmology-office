@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Odgovor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receiver.cs" />
+    <Compile Include="Sender.cs" />
     <Compile Include="Zahtev.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
