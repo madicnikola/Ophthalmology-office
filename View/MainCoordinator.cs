@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using View;
 using Domen;
-using Forme.Controller;
+using View.Controller;
 
 namespace View
 {

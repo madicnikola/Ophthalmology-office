@@ -20,8 +20,6 @@ namespace Domen
 
         public List<StavkaPregleda> StavkePregleda { get; set; }
 
-        public KorisnikSistema Korisnik { get; set; }
-
         public Pregled()
         {
             StavkePregleda = new List<StavkaPregleda>();
@@ -35,22 +33,23 @@ namespace Domen
         [Browsable(false)]
 
         public string VrednostiZaInsert => $"{PregledId}, {Pacijent.BrojKartonaId}, {Lekar.LekarId}," +
-            $" '{DatumPregleda}', {BrojPregleda}, {Korisnik.KorisnikId}";
+            $" '{DatumPregleda}', {BrojPregleda}";
         [Browsable(false)]
 
         public string VrednostZaUpdate => $"LekarId = {Lekar.LekarId}, " +
-            $"PacijentId = {Pacijent.BrojKartonaId}, DatumPregleada = '{DatumPregleda}', BrojPregleda = {BrojPregleda}, " +
-            $"KorisnikId = {Korisnik.KorisnikId}";
+            $"PacijentId = {Pacijent.BrojKartonaId}, DatumPregleda = '{DatumPregleda}', BrojPregleda = {BrojPregleda}";
         [Browsable(false)]
 
-        public string KriterijumiZaPretragu => $"PregledId = {PregledId}";
+        public string KriterijumiZaPretragu => $"PregledId = {PregledId} OR DatumPregleda='{DatumPregleda}'";
         [Browsable(false)]
 
         public string PrimarniKljuc => "PregledId";
 
-        public IDictionary Kriterijumi { get; set; }
+		[Browsable(false)]
 
-        public bool AdekvatnoPopunjen()
+		public IDictionary Kriterijumi { get; set; }
+
+		public bool AdekvatnoPopunjen()
         {
 
             if (DatumPregleda == null)
@@ -74,7 +73,6 @@ namespace Domen
             Pacijent = p.Pacijent;
             DatumPregleda = p.DatumPregleda;
             BrojPregleda = p.BrojPregleda;
-            Korisnik = p.Korisnik;
         }
 
         public void PostaviVrednostPodDomena(IDomenskiObjekat ido)
@@ -84,23 +82,13 @@ namespace Domen
                 Lekar = (Lekar)ido;
             }
 
-            if (ido is KorisnikSistema)
-            {
-                Korisnik = (KorisnikSistema)ido;
-            }
-
             if (ido is Pacijent)
             {
                 Pacijent = (Pacijent)ido;
             }
+		}
 
-            if (ido is StavkaPregleda)
-            {
-                StavkePregleda.Add((StavkaPregleda)ido);
-            }
-        }
-
-        public string UslovFiltera()
+		public string UslovFiltera()
         {
             if (Kriterijumi == null)
                 throw new ArgumentException("Dictionary nije postavljen.");
@@ -122,10 +110,6 @@ namespace Domen
                     {
                         LekarId = (int)reader["LekarId"]
                     },
-                    Korisnik = new KorisnikSistema()
-                    {
-                        KorisnikId = (int)reader["KorisnikId"]
-                    },
                     Pacijent = new Pacijent()
                     {
                         BrojKartonaId = (int)reader["BrojKartonaId"]
@@ -140,8 +124,17 @@ namespace Domen
 
         public IDomenskiObjekat VratiPodDomen()
         {
-            return null;
-        }
+			if (Lekar != null && Lekar.Ime == null)
+			{
+				return Lekar as IDomenskiObjekat;
+			}
+			if(Pacijent != null && Pacijent.Ime == null)
+			{
+				return Pacijent as IDomenskiObjekat;
+			}
+
+			return null;
+		}
 
 
         #endregion
@@ -150,5 +143,10 @@ namespace Domen
             return obj is Pregled pregled &&
                    PregledId == pregled.PregledId;
         }
-    }
+
+		public override int GetHashCode()
+		{
+			return 2030567521 + PregledId.GetHashCode();
+		}
+	}
 }

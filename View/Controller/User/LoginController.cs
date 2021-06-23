@@ -1,13 +1,10 @@
 ﻿using Domen;
-using Forme.Exceptions;
-using System;
+using View.Exceptions;
 using System.Net.Sockets;
 using System.Windows.Forms;
-using View;
-using View.Communication;
 using View.Helpers;
 
-namespace Forme.Controller
+namespace View.Controller
 {
 	public class LoginController
 	{
@@ -22,7 +19,7 @@ namespace Forme.Controller
 			}
 			try
 			{
-				KorisnikSistema k = Communication.Instance.Login(txtUsername.Text, txtPassword.Text);
+				KorisnikSistema k = Communication.Communication.Instance.Login(txtUsername.Text, txtPassword.Text);
 				MainCoordinator.Instance.Korisnik = k;
 				MessageBox.Show($"Korisnik {k.Ime} {k.Prezime} se uspesno prijavio!");
 				MainCoordinator.Instance.OpenMainForm(k);
@@ -37,7 +34,7 @@ namespace Forme.Controller
 		{
 			try
 			{
-				Communication.Instance.Connect();
+				Communication.Communication.Instance.Connect();
 				return true;
 			}
 			catch (SocketException)

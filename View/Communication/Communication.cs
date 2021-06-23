@@ -1,4 +1,5 @@
 ﻿using Domen;
+using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using Transfer;
@@ -6,44 +7,84 @@ using Transfer;
 namespace View.Communication
 {
 	public class Communication
-    {
-        private static Communication instance;
+	{
+		private static Communication instance;
 
-        private Socket socket;
-        private CommunicationClient client;
-        public static Communication Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new Communication();
-                }
-                return instance;
-            }
-        }
+		private Socket socket;
+		private CommunicationClient client;
+		public static Communication Instance
+		{
+			get
+			{
+				if (instance == null)
+				{
+					instance = new Communication();
+				}
+				return instance;
+			}
+		}
+
+		public object Request { get; private set; }
 
 		private Communication()
-        {
+		{
 
-        }
-        public void Connect()
-        {
-            if (socket != null && socket.Connected)
-            {
-                return;
-            }
-            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            socket.Connect("127.0.0.1", 9999);
-            client = new CommunicationClient(socket);
+		}
+		public void Connect()
+		{
+			if (socket != null && socket.Connected)
+			{
+				return;
+			}
+			socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+			socket.Connect("127.0.0.1", 9999);
+			client = new CommunicationClient(socket);
 
-        }
+		}
 
-        internal void Disconnect()
-        {
-            socket.Close();
-            socket = null;
-        }
+		internal List<IDomenskiObjekat> GetAllDoctors()
+		{
+			Zahtev request = new Zahtev()
+			{
+				Operacija = Operacija.GetAllDoctors
+		,
+				Objekat = new Lekar()
+			};
+			client.SendRequest(request);
+
+			return (List<IDomenskiObjekat>)client.GetResponseResult();
+		}
+
+		public List<IDomenskiObjekat> GetAllPacients()
+		{
+			Zahtev request = new Zahtev()
+			{
+				Operacija = Operacija.GetAllPacients
+			,
+				Objekat = new Pacijent()
+			};
+			client.SendRequest(request);
+
+			return (List<IDomenskiObjekat>)client.GetResponseResult();
+		}
+		public List<IDomenskiObjekat> GetAllExamins()
+		{
+			Zahtev request = new Zahtev()
+			{
+				Operacija = Operacija.GetAllExamins
+		,
+				Objekat = new Pregled()
+			};
+			client.SendRequest(request);
+
+			return (List<IDomenskiObjekat>)client.GetResponseResult();
+		}
+
+		internal void Disconnect()
+		{
+			socket.Close();
+			socket = null;
+		}
 
 		//internal List<Manufacturer> GetAllManufacuturers()
 		//{

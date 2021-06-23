@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Forme.Exceptions
+namespace View.Exceptions
 {
     public class SystemOperationException : Exception
     {

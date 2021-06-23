@@ -46,7 +46,7 @@
 			this.panel1.Controls.Add(this.label1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
-			this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.panel1.Margin = new System.Windows.Forms.Padding(4);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(502, 255);
 			this.panel1.TabIndex = 0;
@@ -55,8 +55,9 @@
 			// btnPrijavi
 			// 
 			this.btnPrijavi.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.btnPrijavi.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnPrijavi.Location = new System.Drawing.Point(86, 137);
-			this.btnPrijavi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.btnPrijavi.Margin = new System.Windows.Forms.Padding(4);
 			this.btnPrijavi.Name = "btnPrijavi";
 			this.btnPrijavi.Size = new System.Drawing.Size(309, 28);
 			this.btnPrijavi.TabIndex = 4;
@@ -68,7 +69,7 @@
 			// 
 			this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.txtPassword.Location = new System.Drawing.Point(194, 81);
-			this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.PasswordChar = '*';
 			this.txtPassword.Size = new System.Drawing.Size(200, 22);
@@ -78,7 +79,7 @@
 			// 
 			this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.txtUsername.Location = new System.Drawing.Point(194, 28);
-			this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
 			this.txtUsername.Name = "txtUsername";
 			this.txtUsername.Size = new System.Drawing.Size(200, 22);
 			this.txtUsername.TabIndex = 2;
@@ -111,7 +112,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(502, 255);
 			this.Controls.Add(this.panel1);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FrmLogin";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Prijava korisnika";

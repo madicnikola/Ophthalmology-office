@@ -48,8 +48,14 @@
   <ItemGroup>
     <Compile Include="Communication\Communication.cs" />
     <Compile Include="Communication\CommunicationClient.cs" />
-    <Compile Include="Controller\LoginController.cs" />
-    <Compile Include="Controller\MainController.cs" />
+    <Compile Include="Controller\Pacient\AllPacientsController.cs" />
+    <Compile Include="Controller\User\LoginController.cs" />
+    <Compile Include="Controller\Doctor\DoctorController.cs" />
+    <Compile Include="Controller\Doctor\AllDoctorsController.cs" />
+    <Compile Include="Controller\Examin\ExaminController.cs" />
+    <Compile Include="Controller\Examin\AllExaminController.cs" />
+    <Compile Include="Controller\Main\MainController.cs" />
+    <Compile Include="Controller\Pacient\PacijentController.cs" />
     <Compile Include="Exceptions\ServerException.cs" />
     <Compile Include="Exceptions\SystemOperationException.cs" />
     <Compile Include="FrmMain.cs">
@@ -68,6 +74,50 @@
     <Compile Include="MainCoordinator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\mode\UCMode.cs" />
+    <Compile Include="UserControls\UCLekar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCLekar.Designer.cs">
+      <DependentUpon>UCLekar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCLekari.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCLekari.Designer.cs">
+      <DependentUpon>UCLekari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCPacijent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCPacijent.Designer.cs">
+      <DependentUpon>UCPacijent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCPacijenti.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCPacijenti.Designer.cs">
+      <DependentUpon>UCPacijenti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCPregled.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCPregled.Designer.cs">
+      <DependentUpon>UCPregled.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCPregledi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCPregledi.Designer.cs">
+      <DependentUpon>UCPregledi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCPretragaPacijenata.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCPretragaPacijenata.Designer.cs">
+      <DependentUpon>UCPretragaPacijenata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\ListConverter.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +133,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\UCLekar.resx">
+      <DependentUpon>UCLekar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCLekari.resx">
+      <DependentUpon>UCLekari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCPacijent.resx">
+      <DependentUpon>UCPacijent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCPacijenti.resx">
+      <DependentUpon>UCPacijenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCPregled.resx">
+      <DependentUpon>UCPregled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCPregledi.resx">
+      <DependentUpon>UCPregledi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCPretragaPacijenata.resx">
+      <DependentUpon>UCPretragaPacijenata.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,7 +182,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dialogs\" />
-    <Folder Include="UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

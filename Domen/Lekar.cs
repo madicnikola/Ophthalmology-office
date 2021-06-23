@@ -82,14 +82,13 @@ namespace Domen
             List<IDomenskiObjekat> lekari = new List<IDomenskiObjekat>();
             while (reader.Read())
             {
-                Lekar l = new Lekar
-                {
-                    LekarId = (int)reader["LekarId"],
-                    Ime = (string)reader["Ime"],
-                    Prezime = (string)reader["Prezime"],
-                    Specijalizacija = (string)reader["Specijalizacija"]
-                }
-                ;
+				Lekar l = new Lekar
+				{
+					LekarId = (int)reader["LekarId"],
+					Ime = (string)reader["Ime"],
+					Prezime = (string)reader["Prezime"],
+					Specijalizacija = (string)reader["Specijalizacija"]
+				};
                 lekari.Add(l);
             }
             return lekari;
@@ -106,5 +105,15 @@ namespace Domen
             return obj is Lekar lekar &&
                    LekarId == lekar.LekarId;
         }
-    }
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
+
+		public override string ToString()
+		{
+			return Ime + " " + Prezime;
+		}
+	}
 }

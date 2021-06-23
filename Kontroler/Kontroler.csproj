@@ -53,6 +53,10 @@
       <Project>{5F95CD81-EB37-489B-AD6D-5E8563F7A13D}</Project>
       <Name>SistemskeOperacije</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Transfer\Transfer.csproj">
+      <Project>{832EB7AF-67C8-4BA5-BBBB-DBC1BE4AAB63}</Project>
+      <Name>Transfer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,7 +31,6 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServer));
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
-			this.lblTime = new System.Windows.Forms.Label();
 			this.dgvClient = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
 			this.SuspendLayout();
@@ -58,16 +57,6 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
-			// lblTime
-			// 
-			this.lblTime.AutoSize = true;
-			this.lblTime.Location = new System.Drawing.Point(892, 31);
-			this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.lblTime.Name = "lblTime";
-			this.lblTime.Size = new System.Drawing.Size(46, 17);
-			this.lblTime.TabIndex = 2;
-			this.lblTime.Text = "label1";
-			// 
 			// dgvClient
 			// 
 			this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -83,7 +72,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1067, 554);
 			this.Controls.Add(this.dgvClient);
-			this.Controls.Add(this.lblTime);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -94,7 +82,6 @@
 			this.Load += new System.EventHandler(this.FrmServer_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
         }
 
@@ -102,7 +89,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.DataGridView dgvClient;
     }
 }

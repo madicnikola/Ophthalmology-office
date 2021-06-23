@@ -8,7 +8,10 @@ namespace Transfer
 {
 	public enum Operacija
 	{
-		PrijaviMe
+		PrijaviMe,
+		GetAllPacients,
+		GetAllDoctors,
+		GetAllExamins
 	}
 
 	[Serializable]

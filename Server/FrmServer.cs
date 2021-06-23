@@ -20,30 +20,9 @@ namespace Server
         {
             button1.Enabled = true;
             button2.Enabled = false;
-            //osvezavanje labele sa vremenom
-            Thread t = new Thread(RefreshTime);
-            t.IsBackground = true;
-            t.Start();
-
-            Timer timer = new Timer();
-            timer.Interval = 1000;
-            timer.Tick += Timer_Tick;
-            timer.Start();
+			startServer();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            lblTime.Text =  DateTime.Now.ToString("dd. MM. yyyy. HH:mm:ss");
-        }
-
-        private void RefreshTime()
-        {
-            while (true)
-            {
-                lblTime.Invoke(new Action(() => lblTime.Text = DateTime.Now.ToString("dd. MM. yyyy. HH:mm")));
-                Thread.Sleep(1000);
-            }
-        }
 
         private void FrmServer_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -51,25 +30,30 @@ namespace Server
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                s = new Server();
-                s.Start();
-                Thread thread = new Thread(s.Listen);
-                thread.IsBackground = true;
-                thread.Start();
-                button1.Enabled = false;
-                button2.Enabled = true;
-                s.Users.ListChanged += Users_ListChanged;
-            }
-            catch (SocketException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+		{
+			startServer();
+		}
 
-        private void Users_ListChanged(object sender, ListChangedEventArgs e)
+		private void startServer()
+		{
+			try
+			{
+				s = new Server();
+				s.Start();
+				Thread thread = new Thread(s.Listen);
+				thread.IsBackground = true;
+				thread.Start();
+				button1.Enabled = false;
+				button2.Enabled = true;
+				s.Users.ListChanged += Users_ListChanged;
+			}
+			catch (SocketException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+
+		private void Users_ListChanged(object sender, ListChangedEventArgs e)
         {
             dgvClient.Invoke(new Action(() => dgvClient.DataSource = s.Users.ToList()));
         }

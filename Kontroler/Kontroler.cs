@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Collections;
 using Domen;
+using SistemskeOperacije;
 using SistemskeOperacije.UserSO;
+using Transfer;
 
 namespace KontrolerNS
 {
 	public class Kontroler
 	{
-		private static Kontroler _instance;
 		#region singleton
 		private static Kontroler instance;
 
@@ -39,32 +35,62 @@ namespace KontrolerNS
 		private Kontroler()
 		{
 		}
-
-		public KorisnikSistema Login(KorisnikSistema user)
+		public KorisnikSistema login(KorisnikSistema user)
 		{
 			LoginSO so = new LoginSO();
 			so.IzvrsiSO(user);
-			Console.WriteLine(so.Result);
 			return so.Result;
 		}
 
-		// *** SELECT ***
+		public object vratiSve(IDomenskiObjekat ido)
+		{
+			VratiSveSO os = new VratiSveSO();
+			try
+			{
+				os.IzvrsiSO(ido);
+				List<IDomenskiObjekat> lista = ((VratiSveSO)os).lista;
+				return lista;
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				throw e;
+			}
+		}
 
-
-
-
-		// *** INSERT ***
-
-
-
-
-		// *** DELETE ***
-
-
-
-
-		// *** OTHER ***                
-
-
+		public object vratiSveSlozen(IDomenskiObjekat ido)
+		{
+			VratiSveSlozenSO os = new VratiSveSlozenSO();
+			try
+			{
+				os.IzvrsiSO(ido);
+				List<IDomenskiObjekat> lista = ((VratiSveSlozenSO)os).lista;
+				return lista;
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				throw e;
+			}
+		}
 	}
+
+	// *** SELECT ***
+
+
+
+
+	// *** INSERT ***
+
+
+
+
+	// *** DELETE ***
+
+
+
+
+	// *** OTHER ***                
+
+
 }

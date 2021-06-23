@@ -27,8 +27,17 @@ namespace Domen
             return obj is Pacijent pacijent &&
                    BrojKartonaId == pacijent.BrojKartonaId;
         }
-        #region ODO
-        [Browsable(false)]
+		public override string ToString()
+		{
+			return Ime + " " + Prezime;
+		}
+
+		public override int GetHashCode()
+		{
+			return base.GetHashCode();
+		}
+		#region ODO
+		[Browsable(false)]
 
         public string NazivTabele => "pacijent";
         [Browsable(false)]
@@ -47,7 +56,8 @@ namespace Domen
         [Browsable(false)]
         public string PrimarniKljuc => "BrojKartonaId";
 
-        public IDictionary Kriterijumi { get; set; }
+		[Browsable(false)]
+		public IDictionary Kriterijumi { get; set; }
 
         public bool AdekvatnoPopunjen()
         {
@@ -114,7 +124,6 @@ namespace Domen
                     Opis = (string)reader["Opis"],
 
                 };
-
                 pacijenti.Add(p);
             }
 
@@ -126,7 +135,8 @@ namespace Domen
             return null;
         }
 
+		#endregion
 
-        #endregion
-    }
+
+	}
 }

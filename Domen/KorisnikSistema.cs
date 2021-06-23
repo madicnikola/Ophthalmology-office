@@ -21,6 +21,7 @@ namespace Domen
                    Username == sistema.Username &&
                    Password == sistema.Password;
         }
+		
 
         #region ODO
         public string NazivTabele => "KorisnikSistema";
@@ -113,6 +114,21 @@ namespace Domen
             return null;
         }
 
-        #endregion
-    }
+		#endregion
+		public override int GetHashCode()
+		{
+			var hashCode = -864778390;
+			hashCode = hashCode * -1521134295 + KorisnikId.GetHashCode();
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Ime);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Prezime);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Username);
+			hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Password);
+			return hashCode;
+		}
+
+		public override string ToString()
+		{
+			return Ime + " " + Prezime;
+		}
+	}
 }
