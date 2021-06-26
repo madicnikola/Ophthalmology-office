@@ -22,7 +22,6 @@ namespace View.Controller
 			frmDialog.Show();
 			frmDialog.SetPanel(userControl);
 		}
-
 		internal void CloseDialog()
 		{
 			frmDialog.Dispose();

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net.Sockets;
 using Transfer;
+using System;
 
 namespace View.Communication
 {
@@ -27,7 +28,6 @@ namespace View.Communication
             }
             catch (SocketException ex)
             {
-
                 throw new ServerException(ex.Message);
             }
         }
@@ -40,7 +40,7 @@ namespace View.Communication
             }
             else
             {
-                throw new SystemOperationException(response.Poruka);
+				throw new SystemOperationException(response.Poruka);
             }
         }
     }

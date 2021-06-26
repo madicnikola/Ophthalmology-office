@@ -68,6 +68,7 @@ namespace Domen
 			Pregled = sp.Pregled;
 			StavkaPregledaId = sp.StavkaPregledaId;
 			Naziv = sp.Naziv;
+			TipIntervencije = sp.TipIntervencije;
 		}
 
 		public void PostaviVrednostPodDomena(IDomenskiObjekat ido)
@@ -96,6 +97,10 @@ namespace Domen
 					Pregled = new Pregled()
 					{
 						PregledId = (int)reader["PregledId"]
+					}
+					,
+					TipIntervencije = new TipIntervencije{
+						TipIntervId = (int)reader["TipIntervId"]
 					}
 				};
 

@@ -1,0 +1,33 @@
+[1mdiff --git a/View/Communication/Communication.cs b/View/Communication/Communication.cs[m
+[1mindex 00972ef..a4bf28e 100644[m
+[1m--- a/View/Communication/Communication.cs[m
+[1m+++ b/View/Communication/Communication.cs[m
+[36m@@ -45,6 +45,7 @@[m [mnamespace View.Communication[m
+ 		internal Pregled deleteExamin(Pregled p)[m
+ 		{[m
+ 			{[m
+[32m+[m				[32mp = null;[m
+ 				Zahtev request = new Zahtev[m
+ 				{[m
+ 					Operacija = Operacija.DeleteExamin,[m
+[1mdiff --git a/View/Communication/CommunicationClient.cs b/View/Communication/CommunicationClient.cs[m
+[1mindex b8a5748..fc9fc34 100644[m
+[1m--- a/View/Communication/CommunicationClient.cs[m
+[1m+++ b/View/Communication/CommunicationClient.cs[m
+[36m@@ -2,6 +2,7 @@[m
+ using System.IO;[m
+ using System.Net.Sockets;[m
+ using Transfer;[m
+[32m+[m[32musing System;[m
+ [m
+ namespace View.Communication[m
+ {[m
+[36m@@ -27,7 +28,7 @@[m [mnamespace View.Communication[m
+             }[m
+             catch (SocketException ex)[m
+             {[m
+[31m-[m
+[32m+[m				[32mConsole.Write("Hello bitch");[m
+                 throw new ServerException(ex.Message);[m
+             }[m
+         }[m

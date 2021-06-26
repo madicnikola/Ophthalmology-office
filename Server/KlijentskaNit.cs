@@ -78,9 +78,7 @@ namespace Server
 					{
 						response.Objekat = Kontroler.Instance.register((KorisnikSistema)zahtev.Objekat);
 					}
-#pragma warning disable CS0168 // Variable is declared but never used
 					catch (Exception e)
-#pragma warning restore CS0168 // Variable is declared but never used
 					{
 						response.Status = Status.ERR;
 						response.Poruka = "Sistem ne moze da zapamti Korisnika Sistema.";
@@ -92,9 +90,7 @@ namespace Server
 					{
 						response.Objekat = Kontroler.Instance.sacuvajPacijenta((Pacijent)zahtev.Objekat);
 					}
-#pragma warning disable CS0168 // Variable is declared but never used
 					catch (Exception e)
-#pragma warning restore CS0168 // Variable is declared but never used
 					{
 						response.Status = Status.ERR;
 						response.Poruka = "Sistem ne moze da zapamti Pacijenta.";
@@ -106,9 +102,7 @@ namespace Server
 					{
 						response.Objekat = Kontroler.Instance.obrisiPacijenta((IDomenskiObjekat)zahtev.Objekat);
 					}
-#pragma warning disable CS0168 // Variable is declared but never used
 					catch (Exception e)
-#pragma warning restore CS0168 // Variable is declared but never used
 					{
 						response.Status = Status.ERR;
 						response.Poruka = "Sistem ne moze da obrise Pacijenta.";
@@ -119,9 +113,7 @@ namespace Server
 					{
 						response.Objekat = Kontroler.Instance.sacuvajLekara((Lekar)zahtev.Objekat);
 					}
-#pragma warning disable CS0168 // Variable is declared but never used
 					catch (Exception e)
-#pragma warning restore CS0168 // Variable is declared but never used
 					{
 						response.Status = Status.ERR;
 						response.Poruka = "Sistem ne moze da sacuva Lekara.";
@@ -133,9 +125,7 @@ namespace Server
 					{
 						response.Objekat = Kontroler.Instance.ObrisiLekara((IDomenskiObjekat)zahtev.Objekat);
 					}
-#pragma warning disable CS0168 // Variable is declared but never used
 					catch (Exception e)
-#pragma warning restore CS0168 // Variable is declared but never used
 					{
 						response.Status = Status.ERR;
 						response.Poruka = "Sistem ne moze da obrise Lekara.";
@@ -147,9 +137,7 @@ namespace Server
 					{
 						response.Objekat = Kontroler.Instance.sacuvajPregled((Pregled)zahtev.Objekat);
 					}
-#pragma warning disable CS0168 // Variable is declared but never used
 					catch (Exception e)
-#pragma warning restore CS0168 // Variable is declared but never used
 					{
 						response.Status = Status.ERR;
 						response.Poruka = "Sistem ne moze da zapamti Pregled.";
@@ -161,9 +149,7 @@ namespace Server
 					{
 						response.Objekat = Kontroler.Instance.ObrisiPregled((IDomenskiObjekat)zahtev.Objekat);
 					}
-#pragma warning disable CS0168 // Variable is declared but never used
 					catch (Exception e)
-#pragma warning restore CS0168 // Variable is declared but never used
 					{
 						response.Status = Status.ERR;
 						response.Poruka = "Sistem ne moze da obrise Pregled.";
@@ -175,9 +161,7 @@ namespace Server
 					try { 
 					response.Objekat = Kontroler.Instance.pretraziDomenskeObjekte((IDomenskiObjekat)zahtev.Objekat);
 			}
-#pragma warning disable CS0168 // Variable is declared but never used
 					catch (Exception e)
-#pragma warning restore CS0168 // Variable is declared but never used
 			{
 				response.Status = Status.ERR;
 				response.Poruka = $"Sistem ne moze da pronadje {zahtev.Objekat.GetType().ToString().Substring(6)} po zadatom kriterijumu.";
