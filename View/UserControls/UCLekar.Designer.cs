@@ -43,28 +43,31 @@ namespace View.UserControls
 			this.lblPrezime = new System.Windows.Forms.Label();
 			this.lblIme = new System.Windows.Forms.Label();
 			this.lblId = new System.Windows.Forms.Label();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.flowLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// btnNazad
 			// 
 			this.btnNazad.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnNazad.Location = new System.Drawing.Point(155, 286);
-			this.btnNazad.Margin = new System.Windows.Forms.Padding(2);
+			this.btnNazad.Location = new System.Drawing.Point(9, 2);
+			this.btnNazad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnNazad.Name = "btnNazad";
-			this.btnNazad.Size = new System.Drawing.Size(86, 28);
+			this.btnNazad.Size = new System.Drawing.Size(115, 34);
 			this.btnNazad.TabIndex = 39;
 			this.btnNazad.Text = "Nazad";
 			this.btnNazad.UseVisualStyleBackColor = true;
+			this.btnNazad.Click += new System.EventHandler(this.btnNazad_Click);
 			// 
 			// btnObrisi
 			// 
 			this.btnObrisi.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnObrisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnObrisi.Location = new System.Drawing.Point(245, 286);
-			this.btnObrisi.Margin = new System.Windows.Forms.Padding(2);
+			this.btnObrisi.Location = new System.Drawing.Point(130, 2);
+			this.btnObrisi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnObrisi.Name = "btnObrisi";
-			this.btnObrisi.Size = new System.Drawing.Size(86, 28);
+			this.btnObrisi.Size = new System.Drawing.Size(115, 34);
 			this.btnObrisi.TabIndex = 38;
 			this.btnObrisi.Text = "Obrisi";
 			this.btnObrisi.UseVisualStyleBackColor = true;
@@ -73,10 +76,10 @@ namespace View.UserControls
 			// 
 			this.btnSacuvajPromene.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSacuvajPromene.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSacuvajPromene.Location = new System.Drawing.Point(335, 286);
-			this.btnSacuvajPromene.Margin = new System.Windows.Forms.Padding(2);
+			this.btnSacuvajPromene.Location = new System.Drawing.Point(251, 2);
+			this.btnSacuvajPromene.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSacuvajPromene.Name = "btnSacuvajPromene";
-			this.btnSacuvajPromene.Size = new System.Drawing.Size(118, 28);
+			this.btnSacuvajPromene.Size = new System.Drawing.Size(157, 34);
 			this.btnSacuvajPromene.TabIndex = 37;
 			this.btnSacuvajPromene.Text = "Sacuvaj promene";
 			this.btnSacuvajPromene.UseVisualStyleBackColor = true;
@@ -85,10 +88,10 @@ namespace View.UserControls
 			// 
 			this.btnOmoguciIzmenu.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnOmoguciIzmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnOmoguciIzmenu.Location = new System.Drawing.Point(458, 286);
-			this.btnOmoguciIzmenu.Margin = new System.Windows.Forms.Padding(2);
+			this.btnOmoguciIzmenu.Location = new System.Drawing.Point(414, 2);
+			this.btnOmoguciIzmenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnOmoguciIzmenu.Name = "btnOmoguciIzmenu";
-			this.btnOmoguciIzmenu.Size = new System.Drawing.Size(110, 28);
+			this.btnOmoguciIzmenu.Size = new System.Drawing.Size(147, 34);
 			this.btnOmoguciIzmenu.TabIndex = 36;
 			this.btnOmoguciIzmenu.Text = "Omoguci izmenu";
 			this.btnOmoguciIzmenu.UseVisualStyleBackColor = true;
@@ -97,58 +100,58 @@ namespace View.UserControls
 			// 
 			this.btnSacuvaj.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSacuvaj.Location = new System.Drawing.Point(573, 286);
-			this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(2);
+			this.btnSacuvaj.Location = new System.Drawing.Point(567, 2);
+			this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSacuvaj.Name = "btnSacuvaj";
-			this.btnSacuvaj.Size = new System.Drawing.Size(86, 28);
+			this.btnSacuvaj.Size = new System.Drawing.Size(115, 34);
 			this.btnSacuvaj.TabIndex = 35;
 			this.btnSacuvaj.Text = "Sacuvaj";
 			this.btnSacuvaj.UseVisualStyleBackColor = true;
+			this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
 			// 
 			// txtSpecijalizacija
 			// 
 			this.txtSpecijalizacija.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtSpecijalizacija.Location = new System.Drawing.Point(312, 256);
-			this.txtSpecijalizacija.Margin = new System.Windows.Forms.Padding(2);
+			this.txtSpecijalizacija.Location = new System.Drawing.Point(416, 315);
+			this.txtSpecijalizacija.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtSpecijalizacija.Name = "txtSpecijalizacija";
-			this.txtSpecijalizacija.Size = new System.Drawing.Size(301, 26);
+			this.txtSpecijalizacija.Size = new System.Drawing.Size(400, 30);
 			this.txtSpecijalizacija.TabIndex = 34;
 			// 
 			// txtPrezime
 			// 
 			this.txtPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtPrezime.Location = new System.Drawing.Point(312, 182);
-			this.txtPrezime.Margin = new System.Windows.Forms.Padding(2);
+			this.txtPrezime.Location = new System.Drawing.Point(416, 224);
+			this.txtPrezime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtPrezime.Name = "txtPrezime";
-			this.txtPrezime.Size = new System.Drawing.Size(301, 26);
+			this.txtPrezime.Size = new System.Drawing.Size(400, 30);
 			this.txtPrezime.TabIndex = 33;
 			// 
 			// txtIme
 			// 
 			this.txtIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtIme.Location = new System.Drawing.Point(312, 153);
-			this.txtIme.Margin = new System.Windows.Forms.Padding(2);
+			this.txtIme.Location = new System.Drawing.Point(416, 188);
+			this.txtIme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtIme.Name = "txtIme";
-			this.txtIme.Size = new System.Drawing.Size(301, 26);
+			this.txtIme.Size = new System.Drawing.Size(400, 30);
 			this.txtIme.TabIndex = 32;
 			// 
 			// txtId
 			// 
 			this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtId.Location = new System.Drawing.Point(312, 96);
-			this.txtId.Margin = new System.Windows.Forms.Padding(2);
+			this.txtId.Location = new System.Drawing.Point(416, 118);
+			this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtId.Name = "txtId";
-			this.txtId.Size = new System.Drawing.Size(76, 26);
+			this.txtId.Size = new System.Drawing.Size(100, 30);
 			this.txtId.TabIndex = 31;
 			// 
 			// lblSpecijalizacija
 			// 
 			this.lblSpecijalizacija.AutoSize = true;
 			this.lblSpecijalizacija.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblSpecijalizacija.Location = new System.Drawing.Point(198, 256);
-			this.lblSpecijalizacija.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblSpecijalizacija.Location = new System.Drawing.Point(264, 315);
 			this.lblSpecijalizacija.Name = "lblSpecijalizacija";
-			this.lblSpecijalizacija.Size = new System.Drawing.Size(111, 20);
+			this.lblSpecijalizacija.Size = new System.Drawing.Size(141, 25);
 			this.lblSpecijalizacija.TabIndex = 30;
 			this.lblSpecijalizacija.Text = "Specijalizacija:";
 			// 
@@ -156,10 +159,9 @@ namespace View.UserControls
 			// 
 			this.lblPrezime.AutoSize = true;
 			this.lblPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPrezime.Location = new System.Drawing.Point(239, 185);
-			this.lblPrezime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblPrezime.Location = new System.Drawing.Point(319, 228);
 			this.lblPrezime.Name = "lblPrezime";
-			this.lblPrezime.Size = new System.Drawing.Size(70, 20);
+			this.lblPrezime.Size = new System.Drawing.Size(89, 25);
 			this.lblPrezime.TabIndex = 29;
 			this.lblPrezime.Text = "Prezime:";
 			// 
@@ -167,10 +169,9 @@ namespace View.UserControls
 			// 
 			this.lblIme.AutoSize = true;
 			this.lblIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblIme.Location = new System.Drawing.Point(268, 156);
-			this.lblIme.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblIme.Location = new System.Drawing.Point(357, 192);
 			this.lblIme.Name = "lblIme";
-			this.lblIme.Size = new System.Drawing.Size(40, 20);
+			this.lblIme.Size = new System.Drawing.Size(50, 25);
 			this.lblIme.TabIndex = 28;
 			this.lblIme.Text = "Ime:";
 			// 
@@ -178,22 +179,30 @@ namespace View.UserControls
 			// 
 			this.lblId.AutoSize = true;
 			this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblId.Location = new System.Drawing.Point(268, 96);
-			this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblId.Location = new System.Drawing.Point(357, 118);
 			this.lblId.Name = "lblId";
-			this.lblId.Size = new System.Drawing.Size(30, 20);
+			this.lblId.Size = new System.Drawing.Size(37, 25);
 			this.lblId.TabIndex = 27;
 			this.lblId.Text = "ID:";
 			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.flowLayoutPanel1.Controls.Add(this.btnSacuvaj);
+			this.flowLayoutPanel1.Controls.Add(this.btnOmoguciIzmenu);
+			this.flowLayoutPanel1.Controls.Add(this.btnSacuvajPromene);
+			this.flowLayoutPanel1.Controls.Add(this.btnObrisi);
+			this.flowLayoutPanel1.Controls.Add(this.btnNazad);
+			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(131, 360);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(685, 36);
+			this.flowLayoutPanel1.TabIndex = 40;
+			// 
 			// UCLekar
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.btnNazad);
-			this.Controls.Add(this.btnObrisi);
-			this.Controls.Add(this.btnSacuvajPromene);
-			this.Controls.Add(this.btnOmoguciIzmenu);
-			this.Controls.Add(this.btnSacuvaj);
 			this.Controls.Add(this.txtSpecijalizacija);
 			this.Controls.Add(this.txtPrezime);
 			this.Controls.Add(this.txtIme);
@@ -202,8 +211,11 @@ namespace View.UserControls
 			this.Controls.Add(this.lblPrezime);
 			this.Controls.Add(this.lblIme);
 			this.Controls.Add(this.lblId);
+			this.Controls.Add(this.flowLayoutPanel1);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "UCLekar";
-			this.Size = new System.Drawing.Size(800, 505);
+			this.Size = new System.Drawing.Size(1067, 622);
+			this.flowLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -224,6 +236,7 @@ namespace View.UserControls
 		private System.Windows.Forms.Label lblPrezime;
 		private System.Windows.Forms.Label lblIme;
 		private System.Windows.Forms.Label lblId;
+		private FlowLayoutPanel flowLayoutPanel1;
 
 		public Button BtnNazad { get => btnNazad; set => btnNazad = value; }
 		public Button BtnObrisi { get => btnObrisi; set => btnObrisi = value; }

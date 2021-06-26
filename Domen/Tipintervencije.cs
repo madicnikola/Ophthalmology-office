@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domen
 {
-    [Serializable]
+	[Serializable]
     public class TipIntervencije : IDomenskiObjekat
     {
         public int TipIntervId { get; set; }
@@ -19,21 +17,40 @@ namespace Domen
             return obj is TipIntervencije intervencije &&
                    TipIntervId == intervencije.TipIntervId;
         }
+		public override int GetHashCode()
+		{
+			return -98282121 + TipIntervId.GetHashCode();
+		}
 
-        #region ODO
-        public string NazivTabele => "tipIntervencije";
+		public override string ToString()
+		{
+			return Opis;
+		}
 
-        public string VrednostiZaInsert => $"{TipIntervId}, '{Opis}'";
 
-        public string VrednostZaUpdate => null;
+		#region ODO
+		[Browsable(false)]
 
-        public string KriterijumiZaPretragu => $"TipIntervencijeId = {TipIntervId}";
+		public string NazivTabele => "tipIntervencije";
+		[Browsable(false)]
 
-        public string PrimarniKljuc => "TipIntervencijeId";
+		public string VrednostiZaInsert => $"'{Opis}'";
+		[Browsable(false)]
 
-        public IDictionary Kriterijumi { get; set; }
+		public string VrednostZaUpdate => $"Opis = '{Opis}'";
+		[Browsable(false)]
 
-        public bool AdekvatnoPopunjen()
+		public string KriterijumiZaPretragu => $"TipIntervId = {TipIntervId}";
+		[Browsable(false)]
+
+		public string PrimarniKljuc => "TipIntervId";
+		[Browsable(false)]
+
+		public IDictionary Kriterijumi { get; set; }
+
+		public string Identity => "TipIntervId";
+
+		public bool AdekvatnoPopunjen()
         {
             throw new NotImplementedException();
         }
@@ -65,7 +82,7 @@ namespace Domen
             {
                 TipIntervencije ti = new TipIntervencije
                 {
-                    TipIntervId = (int)reader["TipIntervencijeId"],
+                    TipIntervId = (int)reader["TipIntervId"],
                     Opis = (string)reader["Opis"],
                 };
 
@@ -79,6 +96,6 @@ namespace Domen
         {
             return null;
         }
-        #endregion
-    }
+		#endregion
+	}
 }

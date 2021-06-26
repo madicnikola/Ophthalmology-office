@@ -24,6 +24,7 @@ namespace SistemskeOperacije
 			{
 				Console.WriteLine(e.Message);
 				broker.Rollback();
+				throw e;
 			}
 			finally
 			{

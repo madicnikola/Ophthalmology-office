@@ -1,5 +1,5 @@
 ﻿using Domen;
-using KontrolerNS;
+using SistenskeOperacije;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -67,35 +67,130 @@ namespace Server
 			response.Status = Status.OK;
 			switch (zahtev.Operacija)
 			{
-				case Operacija.PrijaviMe:
+				case Operacija.Login:
 					response.Objekat = Kontroler.Instance.login((KorisnikSistema)zahtev.Objekat);
 					loggedInUser = (KorisnikSistema)response.Objekat;
 					users.Add(loggedInUser);
 					break;
-				case Operacija.GetAllPacients:
-					response.Objekat = Kontroler.Instance.vratiSve((IDomenskiObjekat)zahtev.Objekat);
+
+				case Operacija.Register:
+					try
+					{
+						response.Objekat = Kontroler.Instance.register((KorisnikSistema)zahtev.Objekat);
+					}
+#pragma warning disable CS0168 // Variable is declared but never used
+					catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da zapamti Korisnika Sistema.";
+					}
 					break;
+
+				case Operacija.SavePacient:
+					try
+					{
+						response.Objekat = Kontroler.Instance.sacuvajPacijenta((Pacijent)zahtev.Objekat);
+					}
+#pragma warning disable CS0168 // Variable is declared but never used
+					catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da zapamti Pacijenta.";
+					}
+					break;
+
+				case Operacija.DeletePacient:
+					try
+					{
+						response.Objekat = Kontroler.Instance.obrisiPacijenta((IDomenskiObjekat)zahtev.Objekat);
+					}
+#pragma warning disable CS0168 // Variable is declared but never used
+					catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da obrise Pacijenta.";
+					}
+					break;
+				case Operacija.SaveDoctor:
+					try
+					{
+						response.Objekat = Kontroler.Instance.sacuvajLekara((Lekar)zahtev.Objekat);
+					}
+#pragma warning disable CS0168 // Variable is declared but never used
+					catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da sacuva Lekara.";
+					}
+					break;
+
+				case Operacija.DeleteDoctor:
+					try
+					{
+						response.Objekat = Kontroler.Instance.ObrisiLekara((IDomenskiObjekat)zahtev.Objekat);
+					}
+#pragma warning disable CS0168 // Variable is declared but never used
+					catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da obrise Lekara.";
+	   					}
+					break;
+
+				case Operacija.SaveExamin:
+					try
+					{
+						response.Objekat = Kontroler.Instance.sacuvajPregled((Pregled)zahtev.Objekat);
+					}
+#pragma warning disable CS0168 // Variable is declared but never used
+					catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da zapamti Pregled.";
+					}
+					break;
+
+				case Operacija.DeleteExamin:
+					try
+					{
+						response.Objekat = Kontroler.Instance.ObrisiPregled((IDomenskiObjekat)zahtev.Objekat);
+					}
+#pragma warning disable CS0168 // Variable is declared but never used
+					catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da obrise Pregled.";
+					}
+					break;
+				case Operacija.SearchPacients:
+				case Operacija.SearchDoctors:
+				case Operacija.SearchExamin:
+					try { 
+					response.Objekat = Kontroler.Instance.pretraziDomenskeObjekte((IDomenskiObjekat)zahtev.Objekat);
+			}
+#pragma warning disable CS0168 // Variable is declared but never used
+					catch (Exception e)
+#pragma warning restore CS0168 // Variable is declared but never used
+			{
+				response.Status = Status.ERR;
+				response.Poruka = $"Sistem ne moze da pronadje {zahtev.Objekat.GetType().ToString().Substring(6)} po zadatom kriterijumu.";
+			}
+			break;
+				case Operacija.GetAllPacients:
 				case Operacija.GetAllDoctors:
+				case Operacija.GetAllInterventions:
 					response.Objekat = Kontroler.Instance.vratiSve((IDomenskiObjekat)zahtev.Objekat);
 					break;
 				case Operacija.GetAllExamins:
 					response.Objekat = Kontroler.Instance.vratiSveSlozen((IDomenskiObjekat)zahtev.Objekat);
 					break;
-				//case Operacija.GetAllManufacturers:
-				//    response.Result = Controller.Instance.GetAllManufacturers();
-				//    break;
-				//case Operacija.GetAllProducts:
-				//    response.Result = Controller.Instance.GetAllProducts();
-				//    break;
-				//case Operacija.SaveInvoice:
-				//    Controller.Instance.SaveInvoice((Invoice)Zahtev.RequestObject);
-				//    break;
-				//case Operacija.SaveManufacturer:
-				//    Controller.Instance.SaveManufacturer((Manufacturer)Zahtev.RequestObject);
-				//    break;
-				//case Operacija.SaveProduct:
-				//    Controller.Instance.SaveProduct((Product)Zahtev.RequestObject);
-				//    break;
 				default:
 					break;
 			}

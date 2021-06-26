@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using View;
-using Domen;
+﻿using Domen;
+using System.Windows.Forms;
 using View.Controller;
 
 namespace View
 {
-    public class MainCoordinator
+	public class MainCoordinator
     {
         private MainController mainController;
-        private LoginController loginController;
+		private DialogController dialogController;
+		private LoginController loginController;
 
         public KorisnikSistema Korisnik { get; set; }
 
@@ -31,17 +27,25 @@ namespace View
             }
         }
 
-        public void OpenLoginForm()
+        public void OpenLoginForm(string username = "Pera", string password = "Pera")
         {
             if(loginController == null)
 			{
 				loginController = new LoginController();
 			}
 
-			loginController.otvoriFrmLogin();
+			loginController.otvoriFrmLogin(username,password);
         }
+		public void OpenRegisterForm()
+		{
+			if (loginController == null)
+			{
+				loginController = new LoginController();
+			}
+			loginController.otvoriFrmRegister();
+		}
 
-        public void OpenMainForm(KorisnikSistema korisnik)
+		public void OpenMainForm(KorisnikSistema korisnik)
         {
            if(mainController==null)
 			{
@@ -50,5 +54,14 @@ namespace View
 
 			mainController.otvoriFrmMain(korisnik);
         }
-    }
+
+		public void OpenDialog(UserControl userControl)
+		{
+			if (dialogController == null)
+			{
+				dialogController = new DialogController(mainController);
+			}
+			dialogController.openDialog(userControl);
+		}
+	}
 }

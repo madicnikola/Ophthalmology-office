@@ -9,95 +9,110 @@ using System.Threading.Tasks;
 
 namespace Domen
 {
-    [Serializable]
-    public class StavkaPregleda : IDomenskiObjekat
-    {
-        public Pregled Pregled { get; set; }
-        public int StavkaPregledaId { get; set; }
-        public string Naziv { get; set; }
-        public override bool Equals(object obj)
-        {
-            return obj is StavkaPregleda pregleda &&
-                   EqualityComparer<Pregled>.Default.Equals(Pregled, pregleda.Pregled) &&
-                   StavkaPregledaId == pregleda.StavkaPregledaId;
-        }
-        #region ODO
+	[Serializable]
+	public class StavkaPregleda : IDomenskiObjekat
+	{
+		public Pregled Pregled { get; set; }
+		public int StavkaPregledaId { get; set; }
+		public string Naziv { get; set; }
+		public TipIntervencije TipIntervencije { get; set; }
+		public override bool Equals(object obj)
+		{
+			return obj is StavkaPregleda pregleda &&
+				   EqualityComparer<Pregled>.Default.Equals(Pregled, pregleda.Pregled) &&
+				   StavkaPregledaId == pregleda.StavkaPregledaId;
+		}
+		public override int GetHashCode()
+		{
+			var hashCode = -1934028390;
+			hashCode = hashCode * -1521134295 + EqualityComparer<Pregled>.Default.GetHashCode(Pregled);
+			hashCode = hashCode * -1521134295 + StavkaPregledaId.GetHashCode();
+			return hashCode;
+		}
 
-        [Browsable(false)]
+		#region ODO
 
-        public string NazivTabele => "stavkaPregleda";
-        [Browsable(false)]
+		[Browsable(false)]
 
-        public string VrednostiZaInsert => $"{Pregled.PregledId}, {StavkaPregledaId}, '{Naziv}'";
-        [Browsable(false)]
+		public string NazivTabele => "stavkaPregleda";
+		[Browsable(false)]
 
-        public string VrednostZaUpdate => $"Naziv = '{Naziv}'";
-        [Browsable(false)]
+		public string VrednostiZaInsert => $"{Pregled.PregledId}, '{Naziv}', {TipIntervencije.TipIntervId}";
+		[Browsable(false)]
 
-        public string KriterijumiZaPretragu => $"PregledId = {Pregled.PregledId} AND StavkaPregledaId = {StavkaPregledaId}";
-        [Browsable(false)]
+		public string VrednostZaUpdate => $"Naziv = '{Naziv}', TipIntervId= {TipIntervencije.TipIntervId}";
+		[Browsable(false)]
 
-        public string PrimarniKljuc => "PregledId, StavkaPregledaId";
+		public string KriterijumiZaPretragu => $"PregledId = {Pregled.PregledId}";
+		[Browsable(false)]
 
-        public IDictionary Kriterijumi { get; set; }
+		public string PrimarniKljuc => "PregledId, StavkaPregledaId";
+		[Browsable(false)]
 
-        public bool AdekvatnoPopunjen()
-        {
-            return true;
-        }
+		public IDictionary Kriterijumi { get; set; }
+		[Browsable(false)]
 
-        public void PostaviVrednost(IDomenskiObjekat ido)
-        {
-            if (!(ido is StavkaPregleda))
-                return;
+		public string Identity => "StavkaPregledaId";
 
-            StavkaPregleda sp = (StavkaPregleda)ido;
-            Pregled = sp.Pregled;
-            StavkaPregledaId = sp.StavkaPregledaId;
-            Naziv = sp.Naziv;
-        }
+		public bool AdekvatnoPopunjen()
+		{
+			return true;
+		}
 
-        public void PostaviVrednostPodDomena(IDomenskiObjekat ido)
-        {
-            return;
+		public void PostaviVrednost(IDomenskiObjekat ido)
+		{
+			if (!(ido is StavkaPregleda))
+				return;
 
-        }
+			StavkaPregleda sp = (StavkaPregleda)ido;
+			Pregled = sp.Pregled;
+			StavkaPregledaId = sp.StavkaPregledaId;
+			Naziv = sp.Naziv;
+		}
 
-        public string UslovFiltera()
-        {
-            return null;
-        }
+		public void PostaviVrednostPodDomena(IDomenskiObjekat ido)
+		{
+			if (ido is TipIntervencije)
+			{
+				TipIntervencije = (TipIntervencije)ido;
+			}
 
-        public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
-        {
-            List<IDomenskiObjekat> list = new List<IDomenskiObjekat>();
-            while (reader.Read())
-            {
-                StavkaPregleda a = new StavkaPregleda
-                {
-                    StavkaPregledaId = (int)reader["StavkaPregledaId"],
-                    Naziv = (string)reader["Naziv"],
-                    Pregled = new Pregled()
-                    {
-                        PregledId = (int)reader["PregledId"]
-                    }
-                };
+		}
 
-                list.Add(a);
-            }
-            return list;
-        }
+		public string UslovFiltera()
+		{
+			return null;
+		}
 
-        public IDomenskiObjekat VratiPodDomen()
-        {
-            if (Pregled != null)
-            {
-                return Pregled as IDomenskiObjekat;
-            }
+		public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
+		{
+			List<IDomenskiObjekat> list = new List<IDomenskiObjekat>();
+			while (reader.Read())
+			{
+				StavkaPregleda a = new StavkaPregleda
+				{
+					StavkaPregledaId = (int)reader["StavkaPregledaId"],
+					Naziv = (string)reader["Naziv"],
+					Pregled = new Pregled()
+					{
+						PregledId = (int)reader["PregledId"]
+					}
+				};
 
-            return null;
-        }
+				list.Add(a);
+			}
+			return list;
+		}
 
-        #endregion
-    }
+		public IDomenskiObjekat VratiPodDomen()
+		{
+			if (TipIntervencije != null && TipIntervencije.Opis == null)
+				return TipIntervencije as IDomenskiObjekat;
+
+			return null;
+		}
+		#endregion
+		
+
+	}
 }

@@ -25,14 +25,21 @@ namespace Domen
             StavkePregleda = new List<StavkaPregleda>();
         }
 
+		public override string ToString()
+		{
+			return base.ToString();
+		}
 
-        #region ODO
-        [Browsable(false)]
+
+
+
+		#region ODO
+		[Browsable(false)]
 
         public string NazivTabele => "pregled";
         [Browsable(false)]
 
-        public string VrednostiZaInsert => $"{PregledId}, {Pacijent.BrojKartonaId}, {Lekar.LekarId}," +
+        public string VrednostiZaInsert => $"{Lekar.LekarId}, {Pacijent.BrojKartonaId}," +
             $" '{DatumPregleda}', {BrojPregleda}";
         [Browsable(false)]
 
@@ -48,6 +55,10 @@ namespace Domen
 		[Browsable(false)]
 
 		public IDictionary Kriterijumi { get; set; }
+
+		[Browsable(false)]
+
+		public string Identity => "PregledId";
 
 		public bool AdekvatnoPopunjen()
         {
@@ -86,17 +97,25 @@ namespace Domen
             {
                 Pacijent = (Pacijent)ido;
             }
+			if (ido is StavkaPregleda)
+			{
+				StavkePregleda.Add((StavkaPregleda)ido);
+			}
 		}
 
 		public string UslovFiltera()
         {
             if (Kriterijumi == null)
                 throw new ArgumentException("Dictionary nije postavljen.");
+			if (Kriterijumi.Contains("PregledId"))
+			{
+				return $"DatumPregleda = '{(DateTime)Kriterijumi["DatumPregleda"]}' OR PregledId = {Kriterijumi["PregledId"]}";
+			}else
+				return $"DatumPregleda = '{(DateTime)Kriterijumi["DatumPregleda"]}'";
 
-            return $"Datum <= '{(DateTime)Kriterijumi["datum"]}'";
-        }
+		}
 
-        public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
+		public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
         {
             List<IDomenskiObjekat> pregledi = new List<IDomenskiObjekat>();
             while (reader.Read())

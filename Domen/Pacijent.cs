@@ -2,15 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domen
 {
-    [Serializable]
+	[Serializable]
     public class Pacijent : IDomenskiObjekat
     {
         public int BrojKartonaId { get; set; }
@@ -42,8 +38,8 @@ namespace Domen
         public string NazivTabele => "pacijent";
         [Browsable(false)]
 
-        public string VrednostiZaInsert => $"{BrojKartonaId}, '{Ime}', '{Prezime}'," +
-            $" '{DatumRodjenja}', '{Telefon}', '{Oboljenja}', '{Dioptrija}', '{Opis}'";
+        public string VrednostiZaInsert => $"'{Ime}', '{Prezime}'," +
+            $"'{DatumRodjenja}', '{Telefon}', '{Oboljenja}', '{Dioptrija}', '{Opis}'";
         [Browsable(false)]
 
         public string VrednostZaUpdate => $"Ime = '{Ime}', " +
@@ -58,8 +54,10 @@ namespace Domen
 
 		[Browsable(false)]
 		public IDictionary Kriterijumi { get; set; }
+		[Browsable(false)]
+		public string Identity => "BrojKartonaId";
 
-        public bool AdekvatnoPopunjen()
+		public bool AdekvatnoPopunjen()
         {
             if (Ime == null)
                 return false;
@@ -104,7 +102,7 @@ namespace Domen
                 throw new ArgumentException("Dictionary nije postavljen.");
 
             return $"Prezime LIKE '%{Kriterijumi["Prezime"] as string}%' AND " +
-                $"Ime LIKE '%{Kriterijumi["ime"] as string}%' AND ";
+                $"Ime LIKE '%{Kriterijumi["Ime"] as string}%'";
         }
 
         public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)

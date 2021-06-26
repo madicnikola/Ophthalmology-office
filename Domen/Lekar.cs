@@ -23,7 +23,7 @@ namespace Domen
         public string NazivTabele => "lekar";
         [Browsable(false)]
 
-        public string VrednostiZaInsert => $"{LekarId}, '{Ime}', '{Prezime}', '{Specijalizacija}'";
+        public string VrednostiZaInsert => $"'{Ime}', '{Prezime}', '{Specijalizacija}'";
         [Browsable(false)]
 
         public string VrednostZaUpdate => null;
@@ -36,8 +36,11 @@ namespace Domen
         [Browsable(false)]
 
         public IDictionary Kriterijumi { get; set; }
+		[Browsable(false)]
 
-        public bool AdekvatnoPopunjen()
+		public string Identity => "LekarId";
+
+		public bool AdekvatnoPopunjen()
         {
             if (Ime == null)
                 return false;
@@ -73,8 +76,8 @@ namespace Domen
             if (Kriterijumi == null)
                 throw new ArgumentException("Dictionary nije postavljen.");
 
-            return $"Ime LIKE '%{Kriterijumi["ime"] as string}%' AND " +
-             $"Prezime LIKE '%{Kriterijumi["prezime"] as string}%'";
+            return $"Ime LIKE '%{Kriterijumi["Ime"] as string}%' AND " +
+             $"Prezime LIKE '%{Kriterijumi["Prezime"] as string}%'";
         }
 
         public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)

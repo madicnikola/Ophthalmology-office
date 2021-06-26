@@ -8,10 +8,8 @@ namespace View
     {
         public LoginController loginController;
 
-        // private ControllerBL.Controller kontroler;
         public FrmLogin()
         {
-            // kontroler = new ControllerBL.Controller();
             InitializeComponent();
             txtUsername.Text = "Pera";
             txtPassword.Text = "Pera";
@@ -45,5 +43,10 @@ namespace View
         {
             
         }
-    }
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			MainCoordinator.Instance.OpenRegisterForm();
+		}
+	}
 }

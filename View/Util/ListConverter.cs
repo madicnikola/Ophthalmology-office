@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace View.Util
 {
-	public class ListConverter
+	public static class ListConverter
 	{
-		public static List<T> convert<T,S>(List<S> input) where T:S
+		public static BindingList<T> convert<T,S>(List<S> input) where T:S
 		{
-			List<T> output = new List<T>();
+			BindingList<T> output = new BindingList<T>();
 			foreach(var el in input)
 			{
 				output.Add((T)el);

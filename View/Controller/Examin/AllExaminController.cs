@@ -1,7 +1,9 @@
 ﻿using Domen;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using View.Exceptions;
 using View.UserControls;
 using View.UserControls.mode;
 using View.Util;
@@ -10,14 +12,91 @@ namespace View.Controller
 {
 	public class AllExaminController
 	{
-
+		private MainController mainController;
 		public UCPregledi UserControl { get; set; }
-		public BindingList<Pregled> pregledi = new BindingList<Pregled>();
+		BindingList<Pregled> preglediBindingList;
+
+		public AllExaminController(MainController mainController)
+		{
+			this.mainController = mainController;
+		}
+
+		internal void obrisiIzabrani(object sender, EventArgs e)
+		{
+			try
+			{
+				DataGridViewRow row = UserControl.DgvSviPregledi.SelectedRows[0];
+				Pregled p = (Pregled)row.DataBoundItem;
+				p = Communication.Communication.Instance.deleteExamin(p);
+				preglediBindingList = ListConverter.convert<Pregled, IDomenskiObjekat>(Communication.Communication.Instance.GetAllExamins());
+				UserControl.DgvSviPregledi.DataSource = preglediBindingList;
+
+			}
+			catch (SystemOperationException se)
+			{
+				MessageBox.Show(se.Message);
+
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Niste odabrali red!");
+			}
+		}
+
+		internal void prikaziDetalje()
+		{
+			try
+			{
+				DataGridViewRow row = UserControl.DgvSviPregledi.SelectedRows[0];
+				Pregled pregled = (Pregled)row.DataBoundItem;
+				mainController.OpenUCPregledDetalji(pregled, UCMode.VIEW);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.StackTrace);
+				MessageBox.Show("Niste odabrali red!");
+			}
+		}
+
+		internal void pretraziPreglede()
+		{
+			Pregled pregled = new Pregled();
+			try
+			{
+				pregled.Kriterijumi = new Dictionary<string, object>();
+				string pregledIdStr = UserControl.TxtPregledId.Text;
+				if (pregledIdStr != null && pregledIdStr.Length != 0)
+				{
+					int pregledId = Convert.ToInt32(UserControl.TxtPregledId.Text);
+					pregled.Kriterijumi.Add("PregledId", pregledId);
+					
+
+				}
+				DateTime datumKrit = UserControl.DateTimePicker.Value;
+				pregled.Kriterijumi.Add("DatumPregleda", datumKrit);
+
+				preglediBindingList = ListConverter
+						.convert<Pregled, IDomenskiObjekat>(Communication.Communication.Instance.pretraziPreglede(pregled));
+				UserControl.DgvSviPregledi.DataSource = preglediBindingList;
+			}
+			catch (SystemOperationException se)
+			{
+				MessageBox.Show(se.Message);
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Pregled ID mora biti broj");
+				Console.WriteLine(ex.StackTrace);
+			}
+			
+		}
+
 		internal void InitUCAllExamins(UCPregledi ucPregledi)
 		{
 			UserControl = ucPregledi as UCPregledi;
-			List<Pregled> pregledi = ListConverter.convert<Pregled, IDomenskiObjekat>(Communication.Communication.Instance.GetAllExamins());
-			UserControl.DgvSviPregledi.DataSource = pregledi;
+			preglediBindingList = ListConverter.convert<Pregled, IDomenskiObjekat>(Communication.Communication.Instance.GetAllExamins());
+			UserControl.DgvSviPregledi.DataSource = preglediBindingList;
 
 			nameColumns();
 			resizeColumns();
@@ -27,7 +106,7 @@ namespace View.Controller
 
 		public UserControl open(UCMode mode)
 		{
-			UserControl = new UCPregledi();
+			UserControl = new UCPregledi(this);
 			InitUCAllExamins(UserControl as UCPregledi);
 			prepareUC(mode);
 
@@ -44,17 +123,13 @@ namespace View.Controller
 			{
 
 			}
-			if (mode.Equals(UCMode.DELETE))
-			{
-
-			}
 		}
-		private List<Lekar> convert(List<IDomenskiObjekat> list)
+		private List<Pregled> convert(List<IDomenskiObjekat> list)
 		{
-			List<Lekar> l = new List<Lekar>();
+			List<Pregled> l = new List<Pregled>();
 			foreach (var e in list)
 			{
-				l.Add(e as Lekar);
+				l.Add(e as Pregled);
 			}
 			return l;
 		}

@@ -1,36 +1,43 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 
 namespace Domen
 {
-    [Serializable]
-    public class KorisnikSistema : IDomenskiObjekat
-    {
-        public int KorisnikId { get; set; }
-        public string Ime { get; set; }
-        public string Prezime { get; set; }
-        public string Username { get; set; }
+	[Serializable]
+	public class KorisnikSistema : IDomenskiObjekat
+	{
+		public int KorisnikId { get; set; }
+		public string Ime { get; set; }
+		public string Prezime { get; set; }
+		public string Username { get; set; }
 
-        public string Password { get; set; }
+		public string Password { get; set; }
 
-        public override bool Equals(object obj)
-        {
-            return obj is KorisnikSistema sistema &&
-                   Username == sistema.Username &&
-                   Password == sistema.Password;
-        }
-		
+		public override bool Equals(object obj)
+		{
+			return obj is KorisnikSistema sistema &&
+				   Username == sistema.Username &&
+				   Password == sistema.Password;
+		}
 
-        #region ODO
-        public string NazivTabele => "KorisnikSistema";
 
-        public string VrednostiZaInsert => $"{KorisnikId}, '{Ime}', '{Prezime}', '{Username}', '{Password}'";
+		#region ODO
+		[Browsable(false)]
 
-        public string VrednostZaUpdate => null;
+		public string NazivTabele => "KorisnikSistema";
+		[Browsable(false)]
 
-        public string KriterijumiZaPretragu {
+		public string VrednostiZaInsert => $"'{Ime}', '{Prezime}', '{Username}', '{Password}'";
+		[Browsable(false)]
+
+		public string VrednostZaUpdate => null;
+		[Browsable(false)]
+
+		public string KriterijumiZaPretragu
+		{
 			get
 			{
 				{
@@ -38,81 +45,86 @@ namespace Domen
 				}
 			}
 		}
-
-        public string PrimarniKljuc => "KorisnikId";
-
-        public IDictionary Kriterijumi { get; set; }
+		[Browsable(false)]
 
 
+		public string PrimarniKljuc => "KorisnikId";
+		[Browsable(false)]
 
-        public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
-        {
-            List<IDomenskiObjekat> korisnici = new List<IDomenskiObjekat>();
-            while (reader.Read())
-            {
-                KorisnikSistema k = new KorisnikSistema
-                {
-                    KorisnikId = (int)reader["KorisnikId"],
-                    Ime = (string)reader["Ime"],
-                    Prezime = (string)reader["Prezime"],
-                    Username = (string)reader["Username"],
-                    Password = (string)reader["Password"]
-                };
+		public IDictionary Kriterijumi { get; set; }
+		[Browsable(false)]
 
-                korisnici.Add(k);
-            }
+		public string Identity => "KorisnikId";
+		[Browsable(false)]
 
-            return korisnici;
-        }
+		public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
+		{
+			List<IDomenskiObjekat> korisnici = new List<IDomenskiObjekat>();
+			while (reader.Read())
+			{
+				KorisnikSistema k = new KorisnikSistema
+				{
+					KorisnikId = (int)reader["KorisnikId"],
+					Ime = (string)reader["Ime"],
+					Prezime = (string)reader["Prezime"],
+					Username = (string)reader["Username"],
+					Password = (string)reader["Password"]
+				};
 
-        public IDomenskiObjekat VratiPodDomen()
-        {
-            throw null;
-        }
+				korisnici.Add(k);
+			}
 
-        public void PostaviVrednost(IDomenskiObjekat ido)
-        {
-            if (!(ido is KorisnikSistema))
-                return;
+			return korisnici;
+		}
 
-            KorisnikSistema k = (KorisnikSistema)ido;
+		public IDomenskiObjekat VratiPodDomen()
+		{
+			throw null;
+		}
 
-            KorisnikId = k.KorisnikId;
-            Ime = k.Ime;
-            Prezime = k.Prezime;
-            Username = k.Username;
-            Password = k.Password;
-        }
+		public void PostaviVrednost(IDomenskiObjekat ido)
+		{
+			if (!(ido is KorisnikSistema))
+				return;
 
-        public void PostaviVrednostPodDomena(IDomenskiObjekat ido)
-        {
-            return;
-        }
+			KorisnikSistema k = (KorisnikSistema)ido;
 
-        public bool AdekvatnoPopunjen()
-        {
-            if (KorisnikId <= 0)
-                return false;
+			KorisnikId = k.KorisnikId;
+			Ime = k.Ime;
+			Prezime = k.Prezime;
+			Username = k.Username;
+			Password = k.Password;
+		}
 
-            if (Ime == null)
-                return false;
+		public void PostaviVrednostPodDomena(IDomenskiObjekat ido)
+		{
+			return;
+		}
 
-            if (Prezime == null)
-                return false;
+		public bool AdekvatnoPopunjen()
+		{
+			if (KorisnikId <= 0)
+				return false;
 
-            if (Username == null)
-                return false;
+			if (Ime == null)
+				return false;
 
-            if (Password == null)
-                return false;
+			if (Prezime == null)
+				return false;
 
-            return true;
-        }
+			if (Username == null)
+				return false;
 
-        public string UslovFiltera()
-        {
-            return null;
-        }
+			if (Password == null)
+				return false;
+
+			return true;
+		}
+
+		public string UslovFiltera()
+		{
+			return null;
+		}
 
 		#endregion
 		public override int GetHashCode()

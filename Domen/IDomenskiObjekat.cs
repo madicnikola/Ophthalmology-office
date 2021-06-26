@@ -10,7 +10,8 @@ namespace Domen
         string VrednostiZaInsert { get; }
         string VrednostZaUpdate { get; }
         string KriterijumiZaPretragu { get; }
-        string PrimarniKljuc { get; }
+        string PrimarniKljuc { get;}
+		string Identity { get; }
         IDictionary Kriterijumi { get; set; }
 
         List<IDomenskiObjekat> VratiListu(SqlDataReader reader);

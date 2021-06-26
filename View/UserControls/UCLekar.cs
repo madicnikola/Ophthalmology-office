@@ -7,14 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using View.Controller.Doctor;
 
 namespace View.UserControls
 {
 	public partial class UCLekar : UserControl
 	{
-		public UCLekar()
+		public DoctorController DoctorController { get; set; }
+
+		public UCLekar(DoctorController doctorController)
 		{
+			DoctorController = doctorController;
 			InitializeComponent();
+		}
+
+		private void btnNazad_Click(object sender, EventArgs e)
+		{
+			DoctorController.nazad(sender, e);
+		}
+
+		private void btnSacuvaj_Click(object sender, EventArgs e)
+		{
+			DoctorController.sacuvaj(sender, e);
 		}
 	}
 }

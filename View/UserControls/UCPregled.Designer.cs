@@ -43,22 +43,22 @@ namespace View.UserControls
 			this.cbLekar = new System.Windows.Forms.ComboBox();
 			this.gbPregred = new System.Windows.Forms.GroupBox();
 			this.gbStavkaPregleda = new System.Windows.Forms.GroupBox();
-			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.dgvStavke = new System.Windows.Forms.DataGridView();
+			this.btnObrisiIzabrano = new System.Windows.Forms.Button();
 			this.gbDodajStavku = new System.Windows.Forms.GroupBox();
-			this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-			this.lblNazivStavke = new System.Windows.Forms.Label();
-			this.lblTipIntervencije = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.txtRTipIntervencije = new System.Windows.Forms.RichTextBox();
+			this.cbTipIntervencije = new System.Windows.Forms.ComboBox();
 			this.btnUnesi = new System.Windows.Forms.Button();
+			this.txtNaziv = new System.Windows.Forms.TextBox();
+			this.lblTipIntervencije = new System.Windows.Forms.Label();
+			this.lblNazivStavke = new System.Windows.Forms.Label();
+			this.dgvStavke = new System.Windows.Forms.DataGridView();
+			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+			this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
 			this.btnSacuvaj = new System.Windows.Forms.Button();
 			this.btnNazad = new System.Windows.Forms.Button();
-			this.btnObrisiIzabrano = new System.Windows.Forms.Button();
 			this.gbPregred.SuspendLayout();
 			this.gbStavkaPregleda.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
 			this.gbDodajStavku.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dateTimePicker
@@ -66,41 +66,40 @@ namespace View.UserControls
 			this.dateTimePicker.CustomFormat = "dd.MM.yyyy";
 			this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePicker.Location = new System.Drawing.Point(343, 43);
-			this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2);
+			this.dateTimePicker.Location = new System.Drawing.Point(457, 53);
+			this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.dateTimePicker.MaxDate = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
 			this.dateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
 			this.dateTimePicker.Name = "dateTimePicker";
-			this.dateTimePicker.Size = new System.Drawing.Size(301, 26);
+			this.dateTimePicker.Size = new System.Drawing.Size(400, 30);
 			this.dateTimePicker.TabIndex = 24;
 			this.dateTimePicker.Value = new System.DateTime(2021, 6, 1, 0, 0, 0, 0);
 			// 
 			// txtBrojPregleda
 			// 
 			this.txtBrojPregleda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtBrojPregleda.Location = new System.Drawing.Point(343, 73);
-			this.txtBrojPregleda.Margin = new System.Windows.Forms.Padding(2);
+			this.txtBrojPregleda.Location = new System.Drawing.Point(457, 90);
+			this.txtBrojPregleda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtBrojPregleda.Name = "txtBrojPregleda";
-			this.txtBrojPregleda.Size = new System.Drawing.Size(301, 26);
+			this.txtBrojPregleda.Size = new System.Drawing.Size(400, 30);
 			this.txtBrojPregleda.TabIndex = 23;
 			// 
 			// txtPregledId
 			// 
 			this.txtPregledId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtPregledId.Location = new System.Drawing.Point(343, 13);
-			this.txtPregledId.Margin = new System.Windows.Forms.Padding(2);
+			this.txtPregledId.Location = new System.Drawing.Point(457, 16);
+			this.txtPregledId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.txtPregledId.Name = "txtPregledId";
-			this.txtPregledId.Size = new System.Drawing.Size(76, 26);
+			this.txtPregledId.Size = new System.Drawing.Size(100, 30);
 			this.txtPregledId.TabIndex = 22;
 			// 
 			// lblTelefon
 			// 
 			this.lblTelefon.AutoSize = true;
 			this.lblTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblTelefon.Location = new System.Drawing.Point(229, 79);
-			this.lblTelefon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblTelefon.Location = new System.Drawing.Point(310, 95);
 			this.lblTelefon.Name = "lblTelefon";
-			this.lblTelefon.Size = new System.Drawing.Size(107, 20);
+			this.lblTelefon.Size = new System.Drawing.Size(133, 25);
 			this.lblTelefon.TabIndex = 21;
 			this.lblTelefon.Text = "Broj pregleda:";
 			// 
@@ -108,10 +107,9 @@ namespace View.UserControls
 			// 
 			this.lblDatum.AutoSize = true;
 			this.lblDatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblDatum.Location = new System.Drawing.Point(209, 49);
-			this.lblDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblDatum.Location = new System.Drawing.Point(287, 58);
 			this.lblDatum.Name = "lblDatum";
-			this.lblDatum.Size = new System.Drawing.Size(127, 20);
+			this.lblDatum.Size = new System.Drawing.Size(156, 25);
 			this.lblDatum.TabIndex = 20;
 			this.lblDatum.Text = "Datum pregleda:";
 			// 
@@ -119,10 +117,9 @@ namespace View.UserControls
 			// 
 			this.lblBrojKartonaId.AutoSize = true;
 			this.lblBrojKartonaId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblBrojKartonaId.Location = new System.Drawing.Point(248, 19);
-			this.lblBrojKartonaId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblBrojKartonaId.Location = new System.Drawing.Point(334, 21);
 			this.lblBrojKartonaId.Name = "lblBrojKartonaId";
-			this.lblBrojKartonaId.Size = new System.Drawing.Size(88, 20);
+			this.lblBrojKartonaId.Size = new System.Drawing.Size(109, 25);
 			this.lblBrojKartonaId.TabIndex = 19;
 			this.lblBrojKartonaId.Text = "Pregled ID:";
 			// 
@@ -130,38 +127,40 @@ namespace View.UserControls
 			// 
 			this.lblPacijent.AutoSize = true;
 			this.lblPacijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPacijent.Location = new System.Drawing.Point(267, 105);
-			this.lblPacijent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.lblPacijent.Location = new System.Drawing.Point(353, 134);
 			this.lblPacijent.Name = "lblPacijent";
-			this.lblPacijent.Size = new System.Drawing.Size(69, 20);
+			this.lblPacijent.Size = new System.Drawing.Size(87, 25);
 			this.lblPacijent.TabIndex = 25;
 			this.lblPacijent.Text = "Pacijent:";
 			// 
 			// cbPacijent
 			// 
+			this.cbPacijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbPacijent.FormattingEnabled = true;
-			this.cbPacijent.Location = new System.Drawing.Point(343, 104);
+			this.cbPacijent.Location = new System.Drawing.Point(457, 126);
+			this.cbPacijent.Margin = new System.Windows.Forms.Padding(4);
 			this.cbPacijent.Name = "cbPacijent";
-			this.cbPacijent.Size = new System.Drawing.Size(301, 21);
+			this.cbPacijent.Size = new System.Drawing.Size(400, 33);
 			this.cbPacijent.TabIndex = 26;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(283, 132);
-			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label1.Location = new System.Drawing.Point(376, 175);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(53, 20);
+			this.label1.Size = new System.Drawing.Size(67, 25);
 			this.label1.TabIndex = 27;
 			this.label1.Text = "Lekar:";
 			// 
 			// cbLekar
 			// 
+			this.cbLekar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cbLekar.FormattingEnabled = true;
-			this.cbLekar.Location = new System.Drawing.Point(343, 131);
+			this.cbLekar.Location = new System.Drawing.Point(457, 167);
+			this.cbLekar.Margin = new System.Windows.Forms.Padding(4);
 			this.cbLekar.Name = "cbLekar";
-			this.cbLekar.Size = new System.Drawing.Size(301, 21);
+			this.cbLekar.Size = new System.Drawing.Size(400, 33);
 			this.cbLekar.TabIndex = 28;
 			// 
 			// gbPregred
@@ -176,9 +175,11 @@ namespace View.UserControls
 			this.gbPregred.Controls.Add(this.lblPacijent);
 			this.gbPregred.Controls.Add(this.txtBrojPregleda);
 			this.gbPregred.Controls.Add(this.dateTimePicker);
-			this.gbPregred.Location = new System.Drawing.Point(4, 4);
+			this.gbPregred.Location = new System.Drawing.Point(5, 5);
+			this.gbPregred.Margin = new System.Windows.Forms.Padding(4);
 			this.gbPregred.Name = "gbPregred";
-			this.gbPregred.Size = new System.Drawing.Size(793, 160);
+			this.gbPregred.Padding = new System.Windows.Forms.Padding(4);
+			this.gbPregred.Size = new System.Drawing.Size(1057, 208);
 			this.gbPregred.TabIndex = 29;
 			this.gbPregred.TabStop = false;
 			this.gbPregred.Text = "Pregled";
@@ -188,136 +189,150 @@ namespace View.UserControls
 			this.gbStavkaPregleda.Controls.Add(this.btnObrisiIzabrano);
 			this.gbStavkaPregleda.Controls.Add(this.gbDodajStavku);
 			this.gbStavkaPregleda.Controls.Add(this.dgvStavke);
-			this.gbStavkaPregleda.Location = new System.Drawing.Point(4, 170);
+			this.gbStavkaPregleda.Location = new System.Drawing.Point(5, 213);
+			this.gbStavkaPregleda.Margin = new System.Windows.Forms.Padding(4);
 			this.gbStavkaPregleda.Name = "gbStavkaPregleda";
-			this.gbStavkaPregleda.Size = new System.Drawing.Size(793, 273);
+			this.gbStavkaPregleda.Padding = new System.Windows.Forms.Padding(4);
+			this.gbStavkaPregleda.Size = new System.Drawing.Size(1057, 332);
 			this.gbStavkaPregleda.TabIndex = 30;
 			this.gbStavkaPregleda.TabStop = false;
-			this.gbStavkaPregleda.Text = "Stavke";
-			// 
-			// dgvStavke
-			// 
-			this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvStavke.Location = new System.Drawing.Point(6, 19);
-			this.dgvStavke.Name = "dgvStavke";
-			this.dgvStavke.Size = new System.Drawing.Size(541, 200);
-			this.dgvStavke.TabIndex = 0;
-			// 
-			// gbDodajStavku
-			// 
-			this.gbDodajStavku.Controls.Add(this.btnUnesi);
-			this.gbDodajStavku.Controls.Add(this.txtRTipIntervencije);
-			this.gbDodajStavku.Controls.Add(this.textBox1);
-			this.gbDodajStavku.Controls.Add(this.lblTipIntervencije);
-			this.gbDodajStavku.Controls.Add(this.lblNazivStavke);
-			this.gbDodajStavku.Location = new System.Drawing.Point(554, 19);
-			this.gbDodajStavku.Name = "gbDodajStavku";
-			this.gbDodajStavku.Size = new System.Drawing.Size(233, 246);
-			this.gbDodajStavku.TabIndex = 1;
-			this.gbDodajStavku.TabStop = false;
-			// 
-			// lblNazivStavke
-			// 
-			this.lblNazivStavke.AutoSize = true;
-			this.lblNazivStavke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblNazivStavke.Location = new System.Drawing.Point(5, 21);
-			this.lblNazivStavke.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.lblNazivStavke.Name = "lblNazivStavke";
-			this.lblNazivStavke.Size = new System.Drawing.Size(51, 20);
-			this.lblNazivStavke.TabIndex = 28;
-			this.lblNazivStavke.Text = "Naziv:";
-			// 
-			// lblTipIntervencije
-			// 
-			this.lblTipIntervencije.AutoSize = true;
-			this.lblTipIntervencije.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblTipIntervencije.Location = new System.Drawing.Point(57, 66);
-			this.lblTipIntervencije.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.lblTipIntervencije.Name = "lblTipIntervencije";
-			this.lblTipIntervencije.Size = new System.Drawing.Size(119, 20);
-			this.lblTipIntervencije.TabIndex = 29;
-			this.lblTipIntervencije.Text = "Tip Intervencije:";
-			// 
-			// textBox1
-			// 
-			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.Location = new System.Drawing.Point(61, 15);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(166, 26);
-			this.textBox1.TabIndex = 30;
-			// 
-			// txtRTipIntervencije
-			// 
-			this.txtRTipIntervencije.Location = new System.Drawing.Point(7, 89);
-			this.txtRTipIntervencije.Name = "txtRTipIntervencije";
-			this.txtRTipIntervencije.Size = new System.Drawing.Size(220, 111);
-			this.txtRTipIntervencije.TabIndex = 31;
-			this.txtRTipIntervencije.Text = "";
-			// 
-			// btnUnesi
-			// 
-			this.btnUnesi.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnUnesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnUnesi.Location = new System.Drawing.Point(141, 205);
-			this.btnUnesi.Margin = new System.Windows.Forms.Padding(2);
-			this.btnUnesi.Name = "btnUnesi";
-			this.btnUnesi.Size = new System.Drawing.Size(86, 28);
-			this.btnUnesi.TabIndex = 32;
-			this.btnUnesi.Text = "Unesi";
-			this.btnUnesi.UseVisualStyleBackColor = true;
-			// 
-			// btnSacuvaj
-			// 
-			this.btnSacuvaj.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSacuvaj.Location = new System.Drawing.Point(705, 465);
-			this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(2);
-			this.btnSacuvaj.Name = "btnSacuvaj";
-			this.btnSacuvaj.Size = new System.Drawing.Size(86, 28);
-			this.btnSacuvaj.TabIndex = 33;
-			this.btnSacuvaj.Text = "Sacuvaj";
-			this.btnSacuvaj.UseVisualStyleBackColor = true;
-			// 
-			// btnNazad
-			// 
-			this.btnNazad.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnNazad.Location = new System.Drawing.Point(615, 465);
-			this.btnNazad.Margin = new System.Windows.Forms.Padding(2);
-			this.btnNazad.Name = "btnNazad";
-			this.btnNazad.Size = new System.Drawing.Size(86, 28);
-			this.btnNazad.TabIndex = 34;
-			this.btnNazad.Text = "Nazad";
-			this.btnNazad.UseVisualStyleBackColor = true;
+			this.gbStavkaPregleda.Text = "Stavke pregleda";
 			// 
 			// btnObrisiIzabrano
 			// 
 			this.btnObrisiIzabrano.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnObrisiIzabrano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnObrisiIzabrano.Location = new System.Drawing.Point(430, 224);
-			this.btnObrisiIzabrano.Margin = new System.Windows.Forms.Padding(2);
+			this.btnObrisiIzabrano.Location = new System.Drawing.Point(573, 276);
+			this.btnObrisiIzabrano.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnObrisiIzabrano.Name = "btnObrisiIzabrano";
-			this.btnObrisiIzabrano.Size = new System.Drawing.Size(117, 28);
+			this.btnObrisiIzabrano.Size = new System.Drawing.Size(156, 34);
 			this.btnObrisiIzabrano.TabIndex = 33;
 			this.btnObrisiIzabrano.Text = "Obrisi izabrano";
 			this.btnObrisiIzabrano.UseVisualStyleBackColor = true;
+			this.btnObrisiIzabrano.Click += new System.EventHandler(this.btnObrisiIzabrano_Click);
+			// 
+			// gbDodajStavku
+			// 
+			this.gbDodajStavku.Controls.Add(this.cbTipIntervencije);
+			this.gbDodajStavku.Controls.Add(this.btnUnesi);
+			this.gbDodajStavku.Controls.Add(this.txtNaziv);
+			this.gbDodajStavku.Controls.Add(this.lblTipIntervencije);
+			this.gbDodajStavku.Controls.Add(this.lblNazivStavke);
+			this.gbDodajStavku.Location = new System.Drawing.Point(739, 23);
+			this.gbDodajStavku.Margin = new System.Windows.Forms.Padding(4);
+			this.gbDodajStavku.Name = "gbDodajStavku";
+			this.gbDodajStavku.Padding = new System.Windows.Forms.Padding(4);
+			this.gbDodajStavku.Size = new System.Drawing.Size(311, 246);
+			this.gbDodajStavku.TabIndex = 1;
+			this.gbDodajStavku.TabStop = false;
+			this.gbDodajStavku.Text = "Stavka";
+			// 
+			// cbTipIntervencije
+			// 
+			this.cbTipIntervencije.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cbTipIntervencije.FormattingEnabled = true;
+			this.cbTipIntervencije.Location = new System.Drawing.Point(12, 163);
+			this.cbTipIntervencije.Name = "cbTipIntervencije";
+			this.cbTipIntervencije.Size = new System.Drawing.Size(289, 26);
+			this.cbTipIntervencije.TabIndex = 33;
+			// 
+			// btnUnesi
+			// 
+			this.btnUnesi.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnUnesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnUnesi.Location = new System.Drawing.Point(76, 206);
+			this.btnUnesi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnUnesi.Name = "btnUnesi";
+			this.btnUnesi.Size = new System.Drawing.Size(145, 34);
+			this.btnUnesi.TabIndex = 32;
+			this.btnUnesi.Text = "Unesi";
+			this.btnUnesi.UseVisualStyleBackColor = true;
+			this.btnUnesi.Click += new System.EventHandler(this.btnUnesi_Click);
+			// 
+			// txtNaziv
+			// 
+			this.txtNaziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtNaziv.Location = new System.Drawing.Point(12, 72);
+			this.txtNaziv.Margin = new System.Windows.Forms.Padding(4);
+			this.txtNaziv.Name = "txtNaziv";
+			this.txtNaziv.Size = new System.Drawing.Size(289, 30);
+			this.txtNaziv.TabIndex = 30;
+			// 
+			// lblTipIntervencije
+			// 
+			this.lblTipIntervencije.AutoSize = true;
+			this.lblTipIntervencije.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTipIntervencije.Location = new System.Drawing.Point(71, 135);
+			this.lblTipIntervencije.Name = "lblTipIntervencije";
+			this.lblTipIntervencije.Size = new System.Drawing.Size(150, 25);
+			this.lblTipIntervencije.TabIndex = 29;
+			this.lblTipIntervencije.Text = "Tip Intervencije:";
+			// 
+			// lblNazivStavke
+			// 
+			this.lblNazivStavke.AutoSize = true;
+			this.lblNazivStavke.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblNazivStavke.Location = new System.Drawing.Point(124, 43);
+			this.lblNazivStavke.Name = "lblNazivStavke";
+			this.lblNazivStavke.Size = new System.Drawing.Size(67, 25);
+			this.lblNazivStavke.TabIndex = 28;
+			this.lblNazivStavke.Text = "Naziv:";
+			// 
+			// dgvStavke
+			// 
+			this.dgvStavke.AllowUserToOrderColumns = true;
+			this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvStavke.Location = new System.Drawing.Point(8, 23);
+			this.dgvStavke.Margin = new System.Windows.Forms.Padding(4);
+			this.dgvStavke.Name = "dgvStavke";
+			this.dgvStavke.ReadOnly = true;
+			this.dgvStavke.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvStavke.Size = new System.Drawing.Size(721, 246);
+			this.dgvStavke.TabIndex = 0;
+			// 
+			// btnSacuvaj
+			// 
+			this.btnSacuvaj.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSacuvaj.Location = new System.Drawing.Point(940, 572);
+			this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnSacuvaj.Name = "btnSacuvaj";
+			this.btnSacuvaj.Size = new System.Drawing.Size(115, 34);
+			this.btnSacuvaj.TabIndex = 33;
+			this.btnSacuvaj.Text = "Sacuvaj";
+			this.btnSacuvaj.UseVisualStyleBackColor = true;
+			this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
+			// 
+			// btnNazad
+			// 
+			this.btnNazad.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnNazad.Location = new System.Drawing.Point(820, 572);
+			this.btnNazad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnNazad.Name = "btnNazad";
+			this.btnNazad.Size = new System.Drawing.Size(115, 34);
+			this.btnNazad.TabIndex = 34;
+			this.btnNazad.Text = "Nazad";
+			this.btnNazad.UseVisualStyleBackColor = true;
+			this.btnNazad.Click += new System.EventHandler(this.btnNazad_Click);
 			// 
 			// UCPregled
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.btnNazad);
 			this.Controls.Add(this.btnSacuvaj);
 			this.Controls.Add(this.gbStavkaPregleda);
 			this.Controls.Add(this.gbPregred);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "UCPregled";
-			this.Size = new System.Drawing.Size(800, 505);
+			this.Size = new System.Drawing.Size(1067, 622);
 			this.gbPregred.ResumeLayout(false);
 			this.gbPregred.PerformLayout();
 			this.gbStavkaPregleda.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).EndInit();
 			this.gbDodajStavku.ResumeLayout(false);
 			this.gbDodajStavku.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -340,14 +355,14 @@ namespace View.UserControls
 		private System.Windows.Forms.GroupBox gbDodajStavku;
 		private System.Windows.Forms.DataGridView dgvStavke;
 		private System.ComponentModel.BackgroundWorker backgroundWorker2;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox txtNaziv;
 		private System.Windows.Forms.Label lblTipIntervencije;
 		private System.Windows.Forms.Label lblNazivStavke;
-		private System.Windows.Forms.RichTextBox txtRTipIntervencije;
 		private System.Windows.Forms.Button btnUnesi;
 		private System.Windows.Forms.Button btnSacuvaj;
 		private System.Windows.Forms.Button btnNazad;
 		private System.Windows.Forms.Button btnObrisiIzabrano;
+		private ComboBox cbTipIntervencije;
 
 		public DateTimePicker DateTimePicker { get => dateTimePicker; set => dateTimePicker = value; }
 		public TextBox TxtBrojPregleda { get => txtBrojPregleda; set => txtBrojPregleda = value; }
@@ -365,13 +380,13 @@ namespace View.UserControls
 		public GroupBox GbDodajStavku { get => gbDodajStavku; set => gbDodajStavku = value; }
 		public DataGridView DgvStavke { get => dgvStavke; set => dgvStavke = value; }
 		public BackgroundWorker BackgroundWorker2 { get => backgroundWorker2; set => backgroundWorker2 = value; }
-		public TextBox TextBox1 { get => textBox1; set => textBox1 = value; }
+		public TextBox TxtNaziv { get => txtNaziv; set => txtNaziv = value; }
 		public Label LblTipIntervencije { get => lblTipIntervencije; set => lblTipIntervencije = value; }
 		public Label LblNazivStavke { get => lblNazivStavke; set => lblNazivStavke = value; }
-		public RichTextBox TxtRTipIntervencije { get => txtRTipIntervencije; set => txtRTipIntervencije = value; }
 		public Button BtnUnesi { get => btnUnesi; set => btnUnesi = value; }
 		public Button BtnSacuvaj { get => btnSacuvaj; set => btnSacuvaj = value; }
 		public Button BtnNazad { get => btnNazad; set => btnNazad = value; }
 		public Button BtnObrisiIzabrano { get => btnObrisiIzabrano; set => btnObrisiIzabrano = value; }
+		public ComboBox CbTipIntervencije { get => cbTipIntervencije; set => cbTipIntervencije = value; }
 	}
 }

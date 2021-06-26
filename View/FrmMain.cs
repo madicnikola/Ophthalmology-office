@@ -40,7 +40,7 @@ namespace View
 
 		private void mnItemObrisiPacijenta_Click(object sender, EventArgs e)
 		{
-			mainController.OpenUCAllPacients(this, UCMode.DELETE);
+			mainController.OpenUCAllPacients(this, UCMode.VIEW);
 
 		}
 
@@ -59,7 +59,7 @@ namespace View
 
 		private void mnItemObrisiLekara_Click(object sender, EventArgs e)
 		{
-			mainController.OpenUCLekari(this, UCMode.DELETE);
+			mainController.OpenUCLekari(this, UCMode.VIEW);
 
 		}
 
@@ -77,7 +77,7 @@ namespace View
 
 		private void mnItemObrisiPregled_Click(object sender, EventArgs e)
 		{
-			mainController.OpenUCPregledi(this, UCMode.DELETE);
+			mainController.OpenUCPregledi(this, UCMode.VIEW);
 		}
 	}
 }

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace View.UserControls
 {
-	public partial class UCPretragaPacijenata : UserControl
+	public partial class UCHome : UserControl
 	{
-		public UCPretragaPacijenata()
+		public UCHome()
 		{
 			InitializeComponent();
-		}
-
-		private void btnPretrazi_Click(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

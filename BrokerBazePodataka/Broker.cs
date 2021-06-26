@@ -1,4 +1,5 @@
 ﻿using Domen;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -51,18 +52,25 @@ namespace BrokerBazePodataka
 		public int Sacuvaj(IDomenskiObjekat objekat)
 		{
 			SqlCommand command = new SqlCommand("", konekcija, transakcija);
-			command.CommandText = $"INSERT INTO {objekat.NazivTabele} VALUES" +
+			command.CommandText = $"INSERT INTO {objekat.NazivTabele} output INSERTED.{objekat.Identity} VALUES" +
 				$" ({objekat.VrednostiZaInsert})";
-			return command.ExecuteNonQuery();
+			return (int)command.ExecuteScalar();
 		}
 
-		public object VratiNajveciID(IDomenskiObjekat objekat)
+		public int VratiNajveciID(IDomenskiObjekat objekat)
 		{
 			SqlCommand command = new SqlCommand("", konekcija, transakcija);
 			command.CommandText = $"SELECT MAX({objekat.PrimarniKljuc}) FROM " +
 				$"{objekat.NazivTabele}";
 			object rez = command.ExecuteScalar();
-			return rez;
+			if (rez is DBNull)
+			{
+				return 0;
+			}
+			else
+			{
+				return (int)rez;
+			}
 		}
 
 		public List<IDomenskiObjekat> VratiSve(IDomenskiObjekat objekat)
@@ -86,7 +94,7 @@ namespace BrokerBazePodataka
 			return rezultat;
 		}
 
-		public List<IDomenskiObjekat> Filtriaj(IDomenskiObjekat objekat)
+		public List<IDomenskiObjekat> Filtriraj(IDomenskiObjekat objekat)
 		{
 			SqlCommand command = new SqlCommand("", konekcija, transakcija);
 			command.CommandText = $"SELECT * FROM {objekat.NazivTabele} " +

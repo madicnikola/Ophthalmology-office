@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using Domen;
+﻿using Domen;
 using SistemskeOperacije;
+using SistemskeOperacije.PacijentSO;
+using SistemskeOperacije.LekarSO;
+using SistemskeOperacije.PregledSO;
 using SistemskeOperacije.UserSO;
-using Transfer;
+using System;
+using System.Collections.Generic;
+using SistenskeOperacije.PregledSO;
+using SistenskeOperacije.LekarSO;
 
-namespace KontrolerNS
+namespace SistenskeOperacije
 {
 	public class Kontroler
 	{
@@ -72,6 +76,63 @@ namespace KontrolerNS
 				Console.WriteLine(e.Message);
 				throw e;
 			}
+		}
+
+		public object register(KorisnikSistema objekat)
+		{
+			RegisterSO so = new RegisterSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
+
+		public object sacuvajPacijenta(Pacijent objekat)
+		{
+			SavePacientSO so = new SavePacientSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+
+		}
+
+		public object sacuvajLekara(Lekar objekat)
+		{
+			SaveDoctorSO so = new SaveDoctorSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
+
+		public object sacuvajPregled(Pregled objekat)
+		{
+			SaveExaminSO so = new SaveExaminSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
+
+		public object obrisiPacijenta(IDomenskiObjekat objekat)
+		{
+			DeletePacientSO so = new DeletePacientSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
+
+		public object ObrisiLekara(IDomenskiObjekat objekat)
+		{
+			DeleteDoctorSO so = new DeleteDoctorSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
+
+		public object ObrisiPregled(IDomenskiObjekat objekat)
+		{
+			DeleteExaminSO so = new DeleteExaminSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
+
+		public List<IDomenskiObjekat> pretraziDomenskeObjekte(IDomenskiObjekat objekat)
+		{
+			FilterSO so = new FilterSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
 		}
 	}
 

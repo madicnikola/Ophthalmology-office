@@ -11,11 +11,41 @@ namespace SistemskeOperacije
 
 		protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
 		{
-			List<IDomenskiObjekat> sviPregledi = broker.VratiSve(objekat);
-
-			for (int i = 0; i < sviPregledi.Count;)
+			List<IDomenskiObjekat> rezultat = broker.VratiSve(objekat);
+			if (rezultat.Count == 0)
+				lista = new List<IDomenskiObjekat>();
+			else
 			{
-				IDomenskiObjekat ido = sviPregledi[i];
+				foreach (IDomenskiObjekat id in rezultat)
+				{
+					StavkaPregleda sp = new StavkaPregleda();
+					sp.Pregled = (Pregled)id;
+					List<IDomenskiObjekat> listaStavki = broker.Pronadji(sp);
+						postaviPodDomen(listaStavki);
+					foreach (IDomenskiObjekat id2 in listaStavki)
+					{
+						id.PostaviVrednostPodDomena(id2);
+					}
+				}
+				postaviPodDomen(rezultat);
+				lista = rezultat;
+			}
+		}
+
+		protected override void Validacija(IDomenskiObjekat objekat)
+		{
+			if (!(objekat is Pregled))
+			{
+				throw new Exception("Objekat nije tipa Pregled!");
+			}
+
+		}
+
+		private void postaviPodDomen(List<IDomenskiObjekat> rezultat)
+		{
+			for (int i = 0; i < rezultat.Count;)
+			{
+				IDomenskiObjekat ido = rezultat[i];
 				IDomenskiObjekat podDomen = ido.VratiPodDomen();
 
 				while (podDomen != null)
@@ -35,17 +65,6 @@ namespace SistemskeOperacije
 				}
 
 				i++;
-			}
-
-			lista = sviPregledi;
-
-		}
-
-		protected override void Validacija(IDomenskiObjekat objekat)
-		{
-			if (!(objekat is Pregled))
-			{
-				throw new Exception("Objekat nije tipa Pregled!");
 			}
 
 		}

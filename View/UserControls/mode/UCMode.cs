@@ -8,6 +8,6 @@ namespace View.UserControls.mode
 {
 	public enum UCMode
 	{
-		ADD, VIEW, UPDATE, DELETE
+		ADD, VIEW, UPDATE
 	}
 }
