@@ -30,5 +30,17 @@ namespace View.UserControls
 		{
 			DoctorController.sacuvaj(sender, e);
 		}
+
+		private void btnOmoguciIzmenu_Click(object sender, EventArgs e)
+		{
+			DoctorController.omoguciIzmenu(sender, e);
+
+		}
+
+		private void btnSacuvajPromene_Click(object sender, EventArgs e)
+		{
+			DoctorController.update(sender, e);
+
+		}
 	}
 }

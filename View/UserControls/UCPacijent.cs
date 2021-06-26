@@ -22,5 +22,15 @@ namespace View.UserControls
 		{
 			PacientController.nazad(sender,e);
 		}
+
+		private void btnOmoguciIzmenu_Click(object sender, System.EventArgs e)
+		{
+			PacientController.omoguciIzmenu(sender,e);
+		}
+
+		private void btnSacuvajPromene_Click(object sender, System.EventArgs e)
+		{
+			PacientController.update(sender,e);
+		}
 	}
 }

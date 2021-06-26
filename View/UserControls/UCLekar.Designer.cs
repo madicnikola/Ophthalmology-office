@@ -83,6 +83,7 @@ namespace View.UserControls
 			this.btnSacuvajPromene.TabIndex = 37;
 			this.btnSacuvajPromene.Text = "Sacuvaj promene";
 			this.btnSacuvajPromene.UseVisualStyleBackColor = true;
+			this.btnSacuvajPromene.Click += new System.EventHandler(this.btnSacuvajPromene_Click);
 			// 
 			// btnOmoguciIzmenu
 			// 
@@ -95,6 +96,7 @@ namespace View.UserControls
 			this.btnOmoguciIzmenu.TabIndex = 36;
 			this.btnOmoguciIzmenu.Text = "Omoguci izmenu";
 			this.btnOmoguciIzmenu.UseVisualStyleBackColor = true;
+			this.btnOmoguciIzmenu.Click += new System.EventHandler(this.btnOmoguciIzmenu_Click);
 			// 
 			// btnSacuvaj
 			// 

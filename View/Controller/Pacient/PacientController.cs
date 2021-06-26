@@ -57,9 +57,40 @@ namespace View.Controller.Pacient
 				UserControl.BtnSacuvajPromene.Visible = true;
 				UserControl.BtnObrisi.Visible = false;
 				UserControl.BtnSacuvaj.Visible = false;
+				UserControl.BtnOmoguciIzmenu.Visible = false;
+				UserControl.BtnNazad.Visible = false;
 
 				disableFieldsReadOnly();
 			}
+		}
+
+		internal void update(object sender, EventArgs e)
+		{
+			try
+			{
+				validate();
+				Pacijent p = napraviObjekat();
+				p.BrojKartonaId = Convert.ToInt32(UserControl.TxtBrojKartonaId.Text);
+				p = Communication.Communication.Instance.updatePacient(p);
+				if (p == null)
+				{
+					throw new Exception("Sistem ne može da izmeni pacijenta");
+				}
+				Pacijent = p;
+				MessageBox.Show($"Sistem je izmenio pacijenta");
+				prepareUC(UCMode.VIEW);
+				populateFields();
+				mainController.AllPacientsController.refresh();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+
+		internal void omoguciIzmenu(object sender, EventArgs e)
+		{
+			prepareUC(UCMode.UPDATE);
 		}
 
 		private void populateFields()
@@ -145,7 +176,6 @@ namespace View.Controller.Pacient
 
 		private void disableFieldsReadOnly()
 		{
-			UserControl.TxtBrojKartonaId.ReadOnly = false;
 
 			UserControl.TxtIme.ReadOnly = false;
 			UserControl.TxtPrezime.ReadOnly = false;

@@ -26,8 +26,9 @@ namespace Domen
         public string VrednostiZaInsert => $"'{Ime}', '{Prezime}', '{Specijalizacija}'";
         [Browsable(false)]
 
-        public string VrednostZaUpdate => null;
-        [Browsable(false)]
+        public string VrednostZaUpdate => $"Ime = '{Ime}', " +
+			$"Prezime = '{Prezime}', Specijalizacija = '{Specijalizacija}'";
+		[Browsable(false)]
 
         public string KriterijumiZaPretragu => $"LekarId = {LekarId}";
         [Browsable(false)]

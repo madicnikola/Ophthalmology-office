@@ -134,6 +134,20 @@ namespace SistenskeOperacije
 			so.IzvrsiSO(objekat);
 			return so.Result;
 		}
+
+		public object izmeniPacijenta(Pacijent objekat)
+		{
+			UpdatePacientSO so = new UpdatePacientSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
+
+		public object izmeniLekara(Lekar objekat)
+		{
+			UpdateDoctorSO so = new UpdateDoctorSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
 	}
 
 	// *** SELECT ***

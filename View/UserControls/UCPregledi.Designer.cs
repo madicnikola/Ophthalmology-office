@@ -150,7 +150,7 @@ namespace View.UserControls
 			this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
 			this.dateTimePicker.Location = new System.Drawing.Point(244, 187);
 			this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.dateTimePicker.MaxDate = new System.DateTime(2021, 6, 25, 22, 57, 47, 0);
+			this.dateTimePicker.MaxDate = new System.DateTime(2021, 6, 26, 0, 0, 0, 0);
 			this.dateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
 			this.dateTimePicker.Name = "dateTimePicker";
 			this.dateTimePicker.Size = new System.Drawing.Size(380, 30);

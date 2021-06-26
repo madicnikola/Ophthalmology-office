@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LekarSO\DeleteDoctorSO.cs" />
+    <Compile Include="LekarSO\UpdateDoctorSO.cs" />
     <Compile Include="PacijentSO\DeletePacientSO.cs" />
     <Compile Include="LekarSO\SaveDoctorSO.cs" />
     <Compile Include="OpstaSO.cs" />
     <Compile Include="FilterSO.cs" />
+    <Compile Include="PacijentSO\UpdatePacientSO.cs" />
     <Compile Include="PregledSO\DeleteExaminSO.cs" />
     <Compile Include="PregledSO\SaveExaminSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

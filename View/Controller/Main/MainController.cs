@@ -24,8 +24,6 @@ namespace View.Controller
 		private ExaminController examinController;
 		private AllExaminController allExaminController;
 
-		public KorisnikSistema Korisnik { get; set; }
-
 		internal void CloseMainForm()
 		{
 			Communication.Communication.Instance.Disconnect();
@@ -142,5 +140,14 @@ namespace View.Controller
 			}
 			frmMain.SetPanel(homePanel);
 		}
+
+		public KorisnikSistema Korisnik { get; set; }
+		public DialogController DialogController { get => dialogController; set => dialogController = value; }
+		public PacientController PacientController { get => pacientController; set => pacientController = value; }
+		public AllPacientsController AllPacientsController { get => allPacientsController; set => allPacientsController = value; }
+		public DoctorController DoctorController { get => doctorController; set => doctorController = value; }
+		public AllDoctorsController AllDoctorsController { get => allDoctorsController; set => allDoctorsController = value; }
+		public ExaminController ExaminController { get => examinController; set => examinController = value; }
+		public AllExaminController AllExaminController { get => allExaminController; set => allExaminController = value; }
 	}
 }

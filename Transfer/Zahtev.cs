@@ -10,18 +10,26 @@ namespace Transfer
 	{
 		Login,
 		Register,
+
 		GetAllPacients,
 		GetAllDoctors,
 		GetAllExamins,
+
+		SavePacient,
 		SaveDoctor,
 		SaveExamin,
+
 		DeletePacient,
-		GetAllInterventions,
-		SavePacient,
 		DeleteDoctor,
 		DeleteExamin,
-		SearchDoctors,
+
+		UpdatePacient,
+		UpdateDoctor,
+		
+		GetAllInterventions,
+
 		SearchPacients,
+		SearchDoctors,
 		SearchExamin
 	}
 

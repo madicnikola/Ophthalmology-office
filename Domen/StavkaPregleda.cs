@@ -77,6 +77,10 @@ namespace Domen
 			{
 				TipIntervencije = (TipIntervencije)ido;
 			}
+			if (ido is Pregled)
+			{
+				Pregled = (Pregled)ido;
+			}
 
 		}
 
@@ -113,11 +117,11 @@ namespace Domen
 		{
 			if (TipIntervencije != null && TipIntervencije.Opis == null)
 				return TipIntervencije as IDomenskiObjekat;
+			if (Pregled != null && Pregled.DatumPregleda == null)
+				return Pregled as IDomenskiObjekat;
 
 			return null;
 		}
 		#endregion
-		
-
 	}
 }

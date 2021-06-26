@@ -27,11 +27,8 @@ namespace Domen
 
 		public override string ToString()
 		{
-			return base.ToString();
+			return PregledId+"";
 		}
-
-
-
 
 		#region ODO
 		[Browsable(false)]

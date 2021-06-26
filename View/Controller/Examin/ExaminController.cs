@@ -38,7 +38,7 @@ namespace View.Controller
 				UserControl.TxtPregledId.Visible = false;
 				UserControl.LblPregledId.Visible = false;
 				populateComboBoxes();
-				populateDataGrid();
+				populateDataGrid(stavkePregleda);
 
 			}
 			if (mode.Equals(UCMode.VIEW))
@@ -48,8 +48,11 @@ namespace View.Controller
 				UserControl.BtnObrisiIzabrano.Visible = false;
 				UserControl.BtnNazad.Visible = false;
 
+				stavkePregleda = new BindingList<StavkaPregleda>(Pregled.StavkePregleda);
+				populateDataGrid(stavkePregleda);
 				populateFields();
 				setFieldsReadOnly();
+				
 			}
 			if (mode.Equals(UCMode.UPDATE))
 			{
@@ -64,6 +67,7 @@ namespace View.Controller
 				DataGridViewRow row = UserControl.DgvStavke.SelectedRows[0];
 				StavkaPregleda sp = (StavkaPregleda)row.DataBoundItem;
 				stavkePregleda.Remove(sp);
+				updateStavkePregleda();
 			}
 			catch (Exception)
 			{
@@ -71,6 +75,7 @@ namespace View.Controller
 			}
 		}
 
+	
 		internal void unesiStavku(object sender, EventArgs e)
 		{
 			try { 
@@ -104,12 +109,18 @@ namespace View.Controller
 			}
 		}
 
-		private void populateDataGrid()
+		private void populateDataGrid(BindingList<StavkaPregleda> stavkePregleda)
 		{
+			updateStavkePregleda();
 			UserControl.DgvStavke.DataSource = stavkePregleda;
 			UserControl.DgvStavke.Columns["Naziv"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			UserControl.DgvStavke.Columns["TipIntervencije"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			UserControl.DgvStavke.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+			UserControl.DgvStavke.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+
 			UserControl.DgvStavke.Columns[0].HeaderText = "Pregled ID";
 			UserControl.DgvStavke.Columns[1].HeaderText = "Rb";
+			UserControl.DgvStavke.Columns["TipIntervencije"].HeaderText = "Opis intervencije";
 
 
 		}
@@ -167,6 +178,7 @@ namespace View.Controller
 					throw new Exception("Sistem ne može da zapamti novi pregled");
 				}
 				MessageBox.Show($"Sistem je zapamtio pregled");
+				clearFields();
 			}
 			catch (Exception ex)
 			{
@@ -174,7 +186,14 @@ namespace View.Controller
 			}
 		}
 
-		
+		private void clearFields()
+		{
+			stavkePregleda.Clear();
+			UserControl.TxtBrojPregleda.Clear();
+			UserControl.TxtNaziv.Clear();
+			UserControl.TxtPregledId.Clear();
+
+		}
 
 		internal void nazad(object sender, EventArgs e)
 		{
@@ -233,6 +252,15 @@ namespace View.Controller
 			UserControl.CbPacijent.Text = Pregled.Pacijent.ToString();
 			UserControl.CbLekar.Text= Pregled.Lekar.ToString();
 			UserControl.DgvStavke.DataSource = Pregled.StavkePregleda;
+		}
+
+
+		private void updateStavkePregleda()
+		{
+			for (int i = 0; i < stavkePregleda.Count; i++)
+			{
+				stavkePregleda[i].StavkaPregledaId = i+1;
+			}
 		}
 
 

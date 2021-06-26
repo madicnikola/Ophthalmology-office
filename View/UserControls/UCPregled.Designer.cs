@@ -284,6 +284,7 @@ namespace View.UserControls
 			this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvStavke.Location = new System.Drawing.Point(8, 23);
 			this.dgvStavke.Margin = new System.Windows.Forms.Padding(4);
+			this.dgvStavke.MaximumSize = new System.Drawing.Size(1057, 332);
 			this.dgvStavke.Name = "dgvStavke";
 			this.dgvStavke.ReadOnly = true;
 			this.dgvStavke.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

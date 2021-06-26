@@ -56,6 +56,7 @@ namespace View.Controller.Doctor
 				UserControl.BtnSacuvajPromene.Visible = true;
 				UserControl.BtnObrisi.Visible = false;
 				UserControl.BtnSacuvaj.Visible = false;
+				UserControl.BtnOmoguciIzmenu.Visible = false;
 				UserControl.BtnNazad.Visible = false;
 
 				populateFields();
@@ -64,6 +65,34 @@ namespace View.Controller.Doctor
 			}
 		}
 
+		internal void update(object sender, EventArgs e)
+		{
+			try
+			{
+				validate();
+				Lekar l = napraviObjekat();
+				l.LekarId = Convert.ToInt32(UserControl.TxtId.Text);
+				l = Communication.Communication.Instance.updateDoctor(l);
+				if (l == null)
+				{
+					throw new Exception("Sistem ne može da izmeni lekara");
+				}
+				Lekar = l;
+				MessageBox.Show($"Sistem je izmenio lekara");
+				prepareUC(UCMode.VIEW);
+				populateFields();
+				mainController.AllDoctorsController.refresh();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+
+		internal void omoguciIzmenu(object sender, EventArgs e)
+		{
+			prepareUC(UCMode.UPDATE);
+		}
 
 		internal void sacuvaj(object sender, EventArgs e)
 		{
@@ -133,7 +162,6 @@ namespace View.Controller.Doctor
 		}
 		private void disableFieldsReadOnly()
 		{
-			UserControl.TxtId.ReadOnly = false;
 			UserControl.TxtIme.ReadOnly = false;
 			UserControl.TxtPrezime.ReadOnly = false;
 			UserControl.TxtSpecijalizacija.ReadOnly = false;

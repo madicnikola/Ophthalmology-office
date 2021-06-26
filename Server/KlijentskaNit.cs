@@ -97,6 +97,18 @@ namespace Server
 					}
 					break;
 
+				case Operacija.UpdatePacient:
+					try
+					{
+						response.Objekat = Kontroler.Instance.izmeniPacijenta((Pacijent)zahtev.Objekat);
+					}
+					catch (Exception e)
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da izmeni Pacijenta.";
+					}
+					break;
+
 				case Operacija.DeletePacient:
 					try
 					{
@@ -119,6 +131,17 @@ namespace Server
 						response.Poruka = "Sistem ne moze da sacuva Lekara.";
 					}
 					break;
+				case Operacija.UpdateDoctor:
+					try
+					{
+						response.Objekat = Kontroler.Instance.izmeniLekara((Lekar)zahtev.Objekat);
+					}
+					catch (Exception e)
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da izmeni Lekara.";
+					}
+					break;
 
 				case Operacija.DeleteDoctor:
 					try
@@ -129,7 +152,7 @@ namespace Server
 					{
 						response.Status = Status.ERR;
 						response.Poruka = "Sistem ne moze da obrise Lekara.";
-	   					}
+					}
 					break;
 
 				case Operacija.SaveExamin:
@@ -155,26 +178,31 @@ namespace Server
 						response.Poruka = "Sistem ne moze da obrise Pregled.";
 					}
 					break;
+
 				case Operacija.SearchPacients:
 				case Operacija.SearchDoctors:
 				case Operacija.SearchExamin:
-					try { 
-					response.Objekat = Kontroler.Instance.pretraziDomenskeObjekte((IDomenskiObjekat)zahtev.Objekat);
-			}
+					try
+					{
+						response.Objekat = Kontroler.Instance.pretraziDomenskeObjekte((IDomenskiObjekat)zahtev.Objekat);
+					}
 					catch (Exception e)
-			{
-				response.Status = Status.ERR;
-				response.Poruka = $"Sistem ne moze da pronadje {zahtev.Objekat.GetType().ToString().Substring(6)} po zadatom kriterijumu.";
-			}
-			break;
+					{
+						response.Status = Status.ERR;
+						response.Poruka = $"Sistem ne moze da pronadje {zahtev.Objekat.GetType().ToString().Substring(6)} po zadatom kriterijumu.";
+					}
+					break;
+
 				case Operacija.GetAllPacients:
 				case Operacija.GetAllDoctors:
 				case Operacija.GetAllInterventions:
 					response.Objekat = Kontroler.Instance.vratiSve((IDomenskiObjekat)zahtev.Objekat);
 					break;
+
 				case Operacija.GetAllExamins:
 					response.Objekat = Kontroler.Instance.vratiSveSlozen((IDomenskiObjekat)zahtev.Objekat);
 					break;
+
 				default:
 					break;
 			}

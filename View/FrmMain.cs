@@ -51,18 +51,6 @@ namespace View
 			userControl.Dock = DockStyle.Fill;
 		}
 
-		private void mnItemKreirajLekara_Click(object sender, EventArgs e)
-		{
-			mainController.OpenUCLekar(this, UCMode.ADD);
-
-		}
-
-		private void mnItemObrisiLekara_Click(object sender, EventArgs e)
-		{
-			mainController.OpenUCLekari(this, UCMode.VIEW);
-
-		}
-
 		private void mnItemUnesiNoviPregled_Click(object sender, EventArgs e)
 		{
 			mainController.OpenUCPregled(this, UCMode.ADD);
@@ -78,6 +66,26 @@ namespace View
 		private void mnItemObrisiPregled_Click(object sender, EventArgs e)
 		{
 			mainController.OpenUCPregledi(this, UCMode.VIEW);
+		}
+		private void mnItemKreirajLekara_Click(object sender, EventArgs e)
+		{
+			mainController.OpenUCLekar(this, UCMode.ADD);
+
+		}
+
+		private void mnItemPretregaLekara_Click(object sender, EventArgs e)
+		{
+			mainController.OpenUCLekari(this, UCMode.VIEW);
+		}
+
+		private void mnItemIzmeniLekara_Click(object sender, EventArgs e)
+		{
+			mainController.OpenUCLekari(this, UCMode.VIEW);
+		}
+		private void mnItemObrisiLekara_Click(object sender, EventArgs e)
+		{
+			mainController.OpenUCLekari(this, UCMode.VIEW);
+
 		}
 	}
 }

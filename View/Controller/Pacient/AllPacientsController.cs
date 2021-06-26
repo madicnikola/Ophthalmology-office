@@ -72,10 +72,14 @@ namespace View.Controller.Pacient
 			}
 			catch (SystemOperationException se)
 			{
+				pacijentiBindingList.Clear();
 				MessageBox.Show(se.Message);
 
 			}
 		}
+
+	
+
 		public UserControl open(UCMode mode)
 		{
 			UserControl = new UCPacijenti(this);
@@ -106,6 +110,13 @@ namespace View.Controller.Pacient
 				l.Add(e as Pacijent);
 			}
 			return l;
+		}
+
+
+		internal void refresh()
+		{
+			pacijentiBindingList = ListConverter.convert<Pacijent, IDomenskiObjekat>(Communication.Communication.Instance.GetAllPacients());
+			UserControl.DgvPacijenti.DataSource = pacijentiBindingList;
 		}
 	}
 }

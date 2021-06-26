@@ -81,6 +81,7 @@ namespace View.Controller
 			}
 			catch (SystemOperationException se)
 			{
+				preglediBindingList.Clear();
 				MessageBox.Show(se.Message);
 
 			}

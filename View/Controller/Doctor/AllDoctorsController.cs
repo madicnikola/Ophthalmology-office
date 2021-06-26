@@ -70,9 +70,16 @@ namespace View.Controller
 			}
 			catch (SystemOperationException se)
 			{
+				lekariBindingList.Clear();
 				MessageBox.Show(se.Message);
 
 			}
+		}
+
+		internal void refresh()
+		{
+			lekariBindingList = ListConverter.convert<Lekar, IDomenskiObjekat>(Communication.Communication.Instance.GetAllDoctors());
+			UserControl.DgvSviLekari.DataSource = lekariBindingList;
 		}
 
 		internal void obrisiIzabranog(object sender, EventArgs e)

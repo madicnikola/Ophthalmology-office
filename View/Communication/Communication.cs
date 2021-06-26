@@ -94,6 +94,30 @@ namespace View.Communication
 			return (List<IDomenskiObjekat>)client.GetResponseResult();
 		}
 
+		internal Lekar updateDoctor(Lekar l)
+		{
+			Zahtev request = new Zahtev
+			{
+				Operacija = Operacija.UpdateDoctor,
+				Objekat = l
+			};
+
+			client.SendRequest(request);
+			return (Lekar)client.GetResponseResult();
+		}
+
+		internal Pacijent updatePacient(Pacijent p)
+		{
+			Zahtev request = new Zahtev
+			{
+				Operacija = Operacija.UpdatePacient,
+				Objekat = p
+			};
+
+			client.SendRequest(request);
+			return (Pacijent)client.GetResponseResult();
+		}
+
 		internal List<IDomenskiObjekat> pretraziLekare(Lekar l)
 		{
 			Zahtev request = new Zahtev
