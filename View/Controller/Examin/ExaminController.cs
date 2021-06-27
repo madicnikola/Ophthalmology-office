@@ -1,6 +1,5 @@
 ﻿using Domen;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -26,6 +25,7 @@ namespace View.Controller
 		public UserControl open(UCMode mode)
 		{
 			UserControl = new UCPregled(this);
+			clearFields();
 			prepareUC(mode);
 
 			return UserControl;

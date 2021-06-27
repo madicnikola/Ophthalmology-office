@@ -16,6 +16,7 @@ namespace SistemskeOperacije.PregledSO
 			Pregled p = objekat as Pregled;
 			Console.WriteLine(p.StavkePregleda[0].Pregled.PregledId);
 			//StavkaPregleda sp = p.StavkePregleda[0];
+			broker.Obrisi(p.StavkePregleda[0]);
 			broker.Obrisi(p);
 			Result = p;
 		}

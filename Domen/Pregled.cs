@@ -44,7 +44,7 @@ namespace Domen
             $"PacijentId = {Pacijent.BrojKartonaId}, DatumPregleda = '{DatumPregleda}', BrojPregleda = {BrojPregleda}";
         [Browsable(false)]
 
-        public string KriterijumiZaPretragu => $"PregledId = {PregledId} OR DatumPregleda='{DatumPregleda}'";
+        public string KriterijumiZaPretragu => $"PregledId = {PregledId}";
         [Browsable(false)]
 
         public string PrimarniKljuc => "PregledId";
