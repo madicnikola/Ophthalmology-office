@@ -149,5 +149,6 @@ namespace View.Controller
 		public AllDoctorsController AllDoctorsController { get => allDoctorsController; set => allDoctorsController = value; }
 		public ExaminController ExaminController { get => examinController; set => examinController = value; }
 		public AllExaminController AllExaminController { get => allExaminController; set => allExaminController = value; }
+		public FrmMain FrmMain { get => frmMain; set => frmMain = value; }
 	}
 }

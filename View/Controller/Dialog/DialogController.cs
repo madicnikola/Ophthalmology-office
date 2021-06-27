@@ -19,8 +19,8 @@ namespace View.Controller
 		{
 			this.userControl = userControl;
 			frmDialog = new FrmDialog(this);
-			frmDialog.Show();
 			frmDialog.SetPanel(userControl);
+			frmDialog.ShowDialog(mainController.FrmMain);
 		}
 		internal void CloseDialog()
 		{
