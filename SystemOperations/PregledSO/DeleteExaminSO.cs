@@ -14,7 +14,6 @@ namespace SistemskeOperacije.PregledSO
 		protected override void IzvrsiKonkretnuOperaciju(IDomenskiObjekat objekat)
 		{
 			Pregled p = objekat as Pregled;
-			Console.WriteLine(p.StavkePregleda[0].Pregled.PregledId);
 			foreach(StavkaPregleda sp in p.StavkePregleda)
 			{
 				broker.Obrisi(sp);

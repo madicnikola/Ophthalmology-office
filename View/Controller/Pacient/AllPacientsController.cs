@@ -29,6 +29,7 @@ namespace View.Controller.Pacient
 				Pacijent p = (Pacijent)row.DataBoundItem;
 				p = Communication.Communication.Instance.deletePacient(p);
 				pacijentiBindingList = ListConverter.convert<Pacijent, IDomenskiObjekat>(Communication.Communication.Instance.GetAllPacients());
+				UserControl.DgvPacijenti.DataSource = pacijentiBindingList;
 			}
 			catch (SystemOperationException se)
 			{
