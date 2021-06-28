@@ -41,7 +41,7 @@ namespace Domen
         [Browsable(false)]
 
         public string VrednostZaUpdate => $"LekarId = {Lekar.LekarId}, " +
-            $"PacijentId = {Pacijent.BrojKartonaId}, DatumPregleda = '{DatumPregleda}', BrojPregleda = {BrojPregleda}";
+            $"BrojKartonaId = {Pacijent.BrojKartonaId}, DatumPregleda = '{DatumPregleda}', BrojPregleda = {BrojPregleda}";
         [Browsable(false)]
 
         public string KriterijumiZaPretragu => $"PregledId = {PregledId}";

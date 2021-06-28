@@ -35,20 +35,30 @@ namespace View.Controller
 		{
 			if (mode.Equals(UCMode.ADD))
 			{
+				UserControl.GbDodajStavku.Visible = true;
+
 				UserControl.TxtPregledId.Visible = false;
 				UserControl.LblPregledId.Visible = false;
+				UserControl.BtnOmoguciIzmene.Visible = false;
+				UserControl.BtnSacuvajPromene.Visible = false;
 				populateComboBoxes();
 				populateDataGrid(stavkePregleda);
 
 			}
 			if (mode.Equals(UCMode.VIEW))
 			{
+				stavkePregleda.Clear();
+				UserControl.GbDodajStavku.Visible = false;
+
+				UserControl.BtnOmoguciIzmene.Visible = true;
+
 				UserControl.BtnSacuvaj.Visible = false;
 				UserControl.BtnUnesi.Visible = false;
 				UserControl.BtnObrisiIzabrano.Visible = false;
 				UserControl.BtnNazad.Visible = false;
+				UserControl.BtnSacuvajPromene.Visible = false;
 
-				stavkePregleda = new BindingList<StavkaPregleda>(Pregled.StavkePregleda);
+				Pregled.StavkePregleda.ForEach(sp => stavkePregleda.Add(sp));
 				populateDataGrid(stavkePregleda);
 				populateFields();
 				setFieldsReadOnly();
@@ -56,8 +66,74 @@ namespace View.Controller
 			}
 			if (mode.Equals(UCMode.UPDATE))
 			{
+				UserControl.GbDodajStavku.Visible = true;
+
+				UserControl.BtnUnesi.Visible = true;
+				UserControl.BtnSacuvajPromene.Visible = true;
+				UserControl.BtnObrisiIzabrano.Visible = true;
+
+				UserControl.BtnOmoguciIzmene.Visible = false;
+				UserControl.BtnSacuvaj.Visible = false;
+				UserControl.BtnNazad.Visible = false;
+
+				populateComboBoxes();
+				UserControl.CbLekar.SelectedItem = Pregled.Lekar;
+				UserControl.CbPacijent.SelectedItem = Pregled.Pacijent;
+				populateDataGrid(stavkePregleda);
+
+
 				disableFieldsReadOnly();
 			}
+		}
+
+		internal void updatePregled(object sender, EventArgs e)
+		{
+			try
+			{
+				validate();
+				Console.WriteLine(Convert.ToInt32(UserControl.TxtBrojPregleda.Text));
+				Pregled p = new Pregled
+				{
+					PregledId = Convert.ToInt32(UserControl.TxtPregledId.Text),
+					DatumPregleda = UserControl.DateTimePicker.Value,
+					BrojPregleda = Convert.ToInt32(UserControl.TxtBrojPregleda.Text),
+					Pacijent = UserControl.CbPacijent.SelectedItem as Pacijent,
+					Lekar = UserControl.CbLekar.SelectedItem as Lekar,
+					StavkePregleda = stavkePregleda.ToList()
+				};
+				postaviStavkamaIdPregleda(p);
+				Console.WriteLine(p.Lekar.LekarId);
+				Console.WriteLine("Pacijent -------->"+p.Pacijent.BrojKartonaId);
+
+				p = Communication.Communication.Instance.updatePregled(p);
+
+				Pregled = p ?? throw new Exception("Sistem ne može da izmeni pregled");
+
+				MessageBox.Show($"Sistem je izmenio pregled");
+				prepareUC(UCMode.VIEW);
+				populateFields();
+				mainController.AllExaminController.refresh();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+
+			}
+		}
+
+		private void postaviStavkamaIdPregleda(Pregled p)
+		{
+			foreach(StavkaPregleda sp in p.StavkePregleda)
+			{
+				sp.Pregled = p;
+			}
+		}
+
+		internal void omoguciIzmene(object sender, EventArgs e)
+		{
+			prepareUC(UCMode.UPDATE);
+
 		}
 
 		internal void obrisiStavku(object sender, EventArgs e)
@@ -168,9 +244,7 @@ namespace View.Controller
 				foreach(StavkaPregleda sp in pregled.StavkePregleda){
 					Console.WriteLine(sp.Naziv);
 					Console.WriteLine(sp.TipIntervencije);
-
 				}
-
 
 				pregled = Communication.Communication.Instance.saveExamin(pregled);
 				if (pregled == null)
@@ -209,20 +283,18 @@ namespace View.Controller
 			UserControl.CbLekar.Enabled = false;
 			UserControl.DateTimePicker.Enabled = false;
 			UserControl.CbPacijent.Enabled = false;
-
 			UserControl.GbDodajStavku.Visible = false;
 		}
 
 		private void disableFieldsReadOnly()
 		{
-			UserControl.TxtPregledId.ReadOnly = false;
-			UserControl.TxtBrojPregleda.ReadOnly = false;
+			UserControl.TxtPregledId.ReadOnly = true;
 
+			UserControl.TxtBrojPregleda.ReadOnly = false;
 			UserControl.CbLekar.Enabled = true;
 			UserControl.DateTimePicker.Enabled = true;
 			UserControl.CbPacijent.Enabled = true;
 
-			UserControl.GbDodajStavku.Visible = true;
 		}
 
 		private void validate()
@@ -230,18 +302,6 @@ namespace View.Controller
 
 		}
 
-		private Pregled napraviObjekat()
-		{
-			Console.WriteLine(Convert.ToInt32(UserControl.TxtBrojPregleda.Text));
-			return new Pregled
-			{
-				DatumPregleda = UserControl.DateTimePicker.Value,
-				BrojPregleda = Convert.ToInt32(UserControl.TxtBrojPregleda.Text),
-				Pacijent = UserControl.CbPacijent.SelectedItem as Pacijent,
-				Lekar = UserControl.CbPacijent.SelectedItem as Lekar,
-				StavkePregleda = stavkePregleda.ToList()
-			};
-		}
 		private void populateFields()
 		{
 			UserControl.TxtPregledId.Text = Pregled.PregledId.ToString();
@@ -261,6 +321,18 @@ namespace View.Controller
 			{
 				stavkePregleda[i].StavkaPregledaId = i+1;
 			}
+		}
+		private Pregled napraviObjekat()
+		{
+			Console.WriteLine(Convert.ToInt32(UserControl.TxtBrojPregleda.Text));
+			return new Pregled
+			{
+				DatumPregleda = UserControl.DateTimePicker.Value,
+				BrojPregleda = Convert.ToInt32(UserControl.TxtBrojPregleda.Text),
+				Pacijent = UserControl.CbPacijent.SelectedItem as Pacijent,
+				Lekar = UserControl.CbPacijent.SelectedItem as Lekar,
+				StavkePregleda = stavkePregleda.ToList()
+			};
 		}
 
 

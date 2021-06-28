@@ -87,5 +87,11 @@ namespace View
 			mainController.OpenUCLekari(this, UCMode.VIEW);
 
 		}
+
+		private void izmeniToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			mainController.OpenUCPregledi(this, UCMode.VIEW);
+
+		}
 	}
 }

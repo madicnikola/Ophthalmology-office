@@ -40,5 +40,16 @@ namespace View.UserControls
 		{
 			ExaminController.obrisiStavku(sender, e);
 		}
+
+		private void btnOmoguciIzmene_Click(object sender, EventArgs e)
+		{
+			ExaminController.omoguciIzmene(sender, e);
+		}
+
+		private void btnSacuvajPromene_Click(object sender, EventArgs e)
+		{
+			ExaminController.updatePregled(sender, e);
+
+		}
 	}
 }

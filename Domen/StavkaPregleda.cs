@@ -18,9 +18,9 @@ namespace Domen
 		public TipIntervencije TipIntervencije { get; set; }
 		public override bool Equals(object obj)
 		{
-			return obj is StavkaPregleda pregleda &&
-				   EqualityComparer<Pregled>.Default.Equals(Pregled, pregleda.Pregled) &&
-				   StavkaPregledaId == pregleda.StavkaPregledaId;
+			return obj is StavkaPregleda sp &&
+				   EqualityComparer<Pregled>.Default.Equals(Pregled, sp.Pregled) &&
+				   StavkaPregledaId == sp.StavkaPregledaId;
 		}
 		public override int GetHashCode()
 		{
@@ -43,7 +43,7 @@ namespace Domen
 		public string VrednostZaUpdate => $"Naziv = '{Naziv}', TipIntervId= {TipIntervencije.TipIntervId}";
 		[Browsable(false)]
 
-		public string KriterijumiZaPretragu => $"PregledId = {Pregled.PregledId}";
+		public string KriterijumiZaPretragu => $"PregledId = {Pregled.PregledId} AND StavkaPregledaId = {StavkaPregledaId}";
 		[Browsable(false)]
 
 		public string PrimarniKljuc => "PregledId, StavkaPregledaId";
@@ -86,9 +86,19 @@ namespace Domen
 
 		public string UslovFiltera()
 		{
-			return null;
-		}
+			if (Kriterijumi == null)
+				throw new ArgumentException("Dictionary nije postavljen.");
 
+			if (Kriterijumi.Contains("PregledId"))
+			{
+				return $"PregledId = {Kriterijumi["PregledId"]}";
+			}
+			else
+			{
+
+			return $"StavkaPregledaId = {Kriterijumi["StavkaPregledaId"]}";
+			}
+		}
 		public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
 		{
 			List<IDomenskiObjekat> list = new List<IDomenskiObjekat>();

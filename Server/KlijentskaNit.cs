@@ -166,7 +166,17 @@ namespace Server
 						response.Poruka = "Sistem ne moze da zapamti Pregled.";
 					}
 					break;
-
+				case Operacija.UpdateExamin:
+					try
+					{
+						response.Objekat = Kontroler.Instance.izmeniPregled((Pregled)zahtev.Objekat);
+					}
+					catch (Exception e)
+					{
+						response.Status = Status.ERR;
+						response.Poruka = "Sistem ne moze da izmeni Pregled.";
+					}
+					break;
 				case Operacija.DeleteExamin:
 					try
 					{

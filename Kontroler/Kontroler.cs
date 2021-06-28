@@ -148,6 +148,13 @@ namespace SistenskeOperacije
 			so.IzvrsiSO(objekat);
 			return so.Result;
 		}
+
+		public object izmeniPregled(Pregled objekat)
+		{
+			UpdateExaminSO so = new UpdateExaminSO();
+			so.IzvrsiSO(objekat);
+			return so.Result;
+		}
 	}
 
 	// *** SELECT ***

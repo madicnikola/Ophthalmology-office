@@ -50,6 +50,7 @@
     <Compile Include="PacijentSO\UpdatePacientSO.cs" />
     <Compile Include="PregledSO\DeleteExaminSO.cs" />
     <Compile Include="PregledSO\SaveExaminSO.cs" />
+    <Compile Include="PregledSO\UpdateExaminSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PacijentSO\SavePacientSO.cs" />
     <Compile Include="UserSO\LoginSO.cs" />

@@ -15,8 +15,10 @@ namespace SistemskeOperacije
 			foreach(IDomenskiObjekat id in rezultat)
 			{
 				StavkaPregleda sp = new StavkaPregleda();
-				sp.Pregled = (Pregled)id;
-				List<IDomenskiObjekat> listaAsoc = broker.Pronadji(sp);
+				sp.Kriterijumi = new Dictionary<string, Object>();
+				sp.Kriterijumi.Add("PregledId", ((Pregled)id).PregledId);
+				List<IDomenskiObjekat> listaAsoc = broker.Filtriraj(sp);
+
 				foreach (IDomenskiObjekat id2 in listaAsoc)
 				{
 					TipIntervencije ti = new TipIntervencije();
@@ -25,9 +27,6 @@ namespace SistemskeOperacije
 					id.PostaviVrednostPodDomena(id2);
 				}
 			}
-
-
-
 
 			for (int i = 0; i < rezultat.Count;)
 			{

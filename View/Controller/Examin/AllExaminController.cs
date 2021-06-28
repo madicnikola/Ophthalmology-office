@@ -93,6 +93,12 @@ namespace View.Controller
 			
 		}
 
+		internal void refresh()
+		{
+			preglediBindingList = ListConverter.convert<Pregled, IDomenskiObjekat>(Communication.Communication.Instance.GetAllExamins());
+			UserControl.DgvSviPregledi.DataSource = preglediBindingList;
+		}
+
 		internal void InitUCAllExamins(UCPregledi ucPregledi)
 		{
 			UserControl = ucPregledi as UCPregledi;
@@ -116,14 +122,6 @@ namespace View.Controller
 
 		private void prepareUC(UCMode mode)
 		{
-			if (mode.Equals(UCMode.VIEW))
-			{
-
-			}
-			if (mode.Equals(UCMode.UPDATE))
-			{
-
-			}
 		}
 		private List<Pregled> convert(List<IDomenskiObjekat> list)
 		{

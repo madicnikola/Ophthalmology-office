@@ -38,6 +38,8 @@ namespace View
 			this.mnItemObrisiPacijenta = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnLekar = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnItemKreirajLekara = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnItemPretrega = new System.Windows.Forms.ToolStripMenuItem();
+			this.mnItemIzmeni = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnItemObrisiLekara = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnPregled = new System.Windows.Forms.ToolStripMenuItem();
 			this.mnItemUnesiNoviPregled = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +48,7 @@ namespace View
 			this.pnlMainContainer = new System.Windows.Forms.Panel();
 			this.lblKorisnik = new System.Windows.Forms.Label();
 			this.lblPom = new System.Windows.Forms.Label();
-			this.mnItemPretrega = new System.Windows.Forms.ToolStripMenuItem();
-			this.mnItemIzmeni = new System.Windows.Forms.ToolStripMenuItem();
+			this.izmeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.pnlMainContainer.SuspendLayout();
 			this.SuspendLayout();
@@ -80,28 +81,28 @@ namespace View
 			// mnItemKreirajPacijenta
 			// 
 			this.mnItemKreirajPacijenta.Name = "mnItemKreirajPacijenta";
-			this.mnItemKreirajPacijenta.Size = new System.Drawing.Size(216, 26);
+			this.mnItemKreirajPacijenta.Size = new System.Drawing.Size(140, 26);
 			this.mnItemKreirajPacijenta.Text = "Kreiraj";
 			this.mnItemKreirajPacijenta.Click += new System.EventHandler(this.AddNewPacijentToolStripMenuItem_Click);
 			// 
 			// mnItemPretragaPacijenta
 			// 
 			this.mnItemPretragaPacijenta.Name = "mnItemPretragaPacijenta";
-			this.mnItemPretragaPacijenta.Size = new System.Drawing.Size(216, 26);
+			this.mnItemPretragaPacijenta.Size = new System.Drawing.Size(140, 26);
 			this.mnItemPretragaPacijenta.Text = "Pretraga";
 			this.mnItemPretragaPacijenta.Click += new System.EventHandler(this.mnItemPretragaPacijenata_Click);
 			// 
 			// mnItemIzmeniPacijenta
 			// 
 			this.mnItemIzmeniPacijenta.Name = "mnItemIzmeniPacijenta";
-			this.mnItemIzmeniPacijenta.Size = new System.Drawing.Size(216, 26);
+			this.mnItemIzmeniPacijenta.Size = new System.Drawing.Size(140, 26);
 			this.mnItemIzmeniPacijenta.Text = "Izmeni";
 			this.mnItemIzmeniPacijenta.Click += new System.EventHandler(this.mnItemIzmeniPacijenta_Click);
 			// 
 			// mnItemObrisiPacijenta
 			// 
 			this.mnItemObrisiPacijenta.Name = "mnItemObrisiPacijenta";
-			this.mnItemObrisiPacijenta.Size = new System.Drawing.Size(216, 26);
+			this.mnItemObrisiPacijenta.Size = new System.Drawing.Size(140, 26);
 			this.mnItemObrisiPacijenta.Text = "Obrisi";
 			this.mnItemObrisiPacijenta.Click += new System.EventHandler(this.mnItemObrisiPacijenta_Click);
 			// 
@@ -119,14 +120,28 @@ namespace View
 			// mnItemKreirajLekara
 			// 
 			this.mnItemKreirajLekara.Name = "mnItemKreirajLekara";
-			this.mnItemKreirajLekara.Size = new System.Drawing.Size(216, 26);
+			this.mnItemKreirajLekara.Size = new System.Drawing.Size(140, 26);
 			this.mnItemKreirajLekara.Text = "Kreiraj";
 			this.mnItemKreirajLekara.Click += new System.EventHandler(this.mnItemKreirajLekara_Click);
+			// 
+			// mnItemPretrega
+			// 
+			this.mnItemPretrega.Name = "mnItemPretrega";
+			this.mnItemPretrega.Size = new System.Drawing.Size(140, 26);
+			this.mnItemPretrega.Text = "Pretraga";
+			this.mnItemPretrega.Click += new System.EventHandler(this.mnItemPretregaLekara_Click);
+			// 
+			// mnItemIzmeni
+			// 
+			this.mnItemIzmeni.Name = "mnItemIzmeni";
+			this.mnItemIzmeni.Size = new System.Drawing.Size(140, 26);
+			this.mnItemIzmeni.Text = "Izmeni";
+			this.mnItemIzmeni.Click += new System.EventHandler(this.mnItemIzmeniLekara_Click);
 			// 
 			// mnItemObrisiLekara
 			// 
 			this.mnItemObrisiLekara.Name = "mnItemObrisiLekara";
-			this.mnItemObrisiLekara.Size = new System.Drawing.Size(216, 26);
+			this.mnItemObrisiLekara.Size = new System.Drawing.Size(140, 26);
 			this.mnItemObrisiLekara.Text = "Obrisi";
 			this.mnItemObrisiLekara.Click += new System.EventHandler(this.mnItemObrisiLekara_Click);
 			// 
@@ -135,6 +150,7 @@ namespace View
 			this.mnPregled.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnItemUnesiNoviPregled,
             this.mnItemPretragePregleda,
+            this.izmeniToolStripMenuItem,
             this.mnItemObrisiPregled});
 			this.mnPregled.Name = "mnPregled";
 			this.mnPregled.Size = new System.Drawing.Size(72, 24);
@@ -143,21 +159,21 @@ namespace View
 			// mnItemUnesiNoviPregled
 			// 
 			this.mnItemUnesiNoviPregled.Name = "mnItemUnesiNoviPregled";
-			this.mnItemUnesiNoviPregled.Size = new System.Drawing.Size(152, 26);
+			this.mnItemUnesiNoviPregled.Size = new System.Drawing.Size(216, 26);
 			this.mnItemUnesiNoviPregled.Text = "Unesi novi";
 			this.mnItemUnesiNoviPregled.Click += new System.EventHandler(this.mnItemUnesiNoviPregled_Click);
 			// 
 			// mnItemPretragePregleda
 			// 
 			this.mnItemPretragePregleda.Name = "mnItemPretragePregleda";
-			this.mnItemPretragePregleda.Size = new System.Drawing.Size(152, 26);
+			this.mnItemPretragePregleda.Size = new System.Drawing.Size(216, 26);
 			this.mnItemPretragePregleda.Text = "Pretraga";
 			this.mnItemPretragePregleda.Click += new System.EventHandler(this.mnItemPretragePregleda_Click);
 			// 
 			// mnItemObrisiPregled
 			// 
 			this.mnItemObrisiPregled.Name = "mnItemObrisiPregled";
-			this.mnItemObrisiPregled.Size = new System.Drawing.Size(152, 26);
+			this.mnItemObrisiPregled.Size = new System.Drawing.Size(216, 26);
 			this.mnItemObrisiPregled.Text = "Obrisi";
 			this.mnItemObrisiPregled.Click += new System.EventHandler(this.mnItemObrisiPregled_Click);
 			// 
@@ -193,19 +209,12 @@ namespace View
 			this.lblPom.TabIndex = 0;
 			this.lblPom.Text = "Korisnik: ";
 			// 
-			// mnItemPretrega
+			// izmeniToolStripMenuItem
 			// 
-			this.mnItemPretrega.Name = "mnItemPretrega";
-			this.mnItemPretrega.Size = new System.Drawing.Size(216, 26);
-			this.mnItemPretrega.Text = "Pretraga";
-			this.mnItemPretrega.Click += new System.EventHandler(this.mnItemPretregaLekara_Click);
-			// 
-			// mnItemIzmeni
-			// 
-			this.mnItemIzmeni.Name = "mnItemIzmeni";
-			this.mnItemIzmeni.Size = new System.Drawing.Size(216, 26);
-			this.mnItemIzmeni.Text = "Izmeni";
-			this.mnItemIzmeni.Click += new System.EventHandler(this.mnItemIzmeniLekara_Click);
+			this.izmeniToolStripMenuItem.Name = "izmeniToolStripMenuItem";
+			this.izmeniToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+			this.izmeniToolStripMenuItem.Text = "Izmeni";
+			this.izmeniToolStripMenuItem.Click += new System.EventHandler(this.izmeniToolStripMenuItem_Click);
 			// 
 			// FrmMain
 			// 
@@ -249,6 +258,7 @@ namespace View
 		private System.Windows.Forms.Label lblKorisnik;
 		private ToolStripMenuItem mnItemPretrega;
 		private ToolStripMenuItem mnItemIzmeni;
+		private ToolStripMenuItem izmeniToolStripMenuItem;
 
 		public MenuStrip MenuStrip1 { get => menuStrip1; set => menuStrip1 = value; }
 		public ToolStripMenuItem MnPacijent { get => mnPacijent; set => mnPacijent = value; }

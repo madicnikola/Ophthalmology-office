@@ -55,10 +55,14 @@ namespace View.UserControls
 			this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
 			this.btnSacuvaj = new System.Windows.Forms.Button();
 			this.btnNazad = new System.Windows.Forms.Button();
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.btnOmoguciIzmene = new System.Windows.Forms.Button();
+			this.btnSacuvajPromene = new System.Windows.Forms.Button();
 			this.gbPregred.SuspendLayout();
 			this.gbStavkaPregleda.SuspendLayout();
 			this.gbDodajStavku.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
+			this.flowLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// dateTimePicker
@@ -295,7 +299,7 @@ namespace View.UserControls
 			// 
 			this.btnSacuvaj.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSacuvaj.Location = new System.Drawing.Point(940, 572);
+			this.btnSacuvaj.Location = new System.Drawing.Point(509, 2);
 			this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSacuvaj.Name = "btnSacuvaj";
 			this.btnSacuvaj.Size = new System.Drawing.Size(115, 34);
@@ -308,7 +312,7 @@ namespace View.UserControls
 			// 
 			this.btnNazad.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnNazad.Location = new System.Drawing.Point(820, 572);
+			this.btnNazad.Location = new System.Drawing.Point(76, 2);
 			this.btnNazad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnNazad.Name = "btnNazad";
 			this.btnNazad.Size = new System.Drawing.Size(115, 34);
@@ -317,14 +321,51 @@ namespace View.UserControls
 			this.btnNazad.UseVisualStyleBackColor = true;
 			this.btnNazad.Click += new System.EventHandler(this.btnNazad_Click);
 			// 
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.Controls.Add(this.btnSacuvaj);
+			this.flowLayoutPanel1.Controls.Add(this.btnOmoguciIzmene);
+			this.flowLayoutPanel1.Controls.Add(this.btnSacuvajPromene);
+			this.flowLayoutPanel1.Controls.Add(this.btnNazad);
+			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(428, 566);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(627, 40);
+			this.flowLayoutPanel1.TabIndex = 35;
+			// 
+			// btnOmoguciIzmene
+			// 
+			this.btnOmoguciIzmene.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnOmoguciIzmene.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnOmoguciIzmene.Location = new System.Drawing.Point(353, 2);
+			this.btnOmoguciIzmene.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnOmoguciIzmene.Name = "btnOmoguciIzmene";
+			this.btnOmoguciIzmene.Size = new System.Drawing.Size(150, 34);
+			this.btnOmoguciIzmene.TabIndex = 35;
+			this.btnOmoguciIzmene.Text = "Omoguci izmene";
+			this.btnOmoguciIzmene.UseVisualStyleBackColor = true;
+			this.btnOmoguciIzmene.Click += new System.EventHandler(this.btnOmoguciIzmene_Click);
+			// 
+			// btnSacuvajPromene
+			// 
+			this.btnSacuvajPromene.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnSacuvajPromene.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSacuvajPromene.Location = new System.Drawing.Point(197, 2);
+			this.btnSacuvajPromene.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnSacuvajPromene.Name = "btnSacuvajPromene";
+			this.btnSacuvajPromene.Size = new System.Drawing.Size(150, 34);
+			this.btnSacuvajPromene.TabIndex = 36;
+			this.btnSacuvajPromene.Text = "Sacuvaj promene";
+			this.btnSacuvajPromene.UseVisualStyleBackColor = true;
+			this.btnSacuvajPromene.Click += new System.EventHandler(this.btnSacuvajPromene_Click);
+			// 
 			// UCPregled
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.btnNazad);
-			this.Controls.Add(this.btnSacuvaj);
 			this.Controls.Add(this.gbStavkaPregleda);
 			this.Controls.Add(this.gbPregred);
+			this.Controls.Add(this.flowLayoutPanel1);
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "UCPregled";
 			this.Size = new System.Drawing.Size(1067, 622);
@@ -334,6 +375,7 @@ namespace View.UserControls
 			this.gbDodajStavku.ResumeLayout(false);
 			this.gbDodajStavku.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).EndInit();
+			this.flowLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -364,6 +406,9 @@ namespace View.UserControls
 		private System.Windows.Forms.Button btnNazad;
 		private System.Windows.Forms.Button btnObrisiIzabrano;
 		private ComboBox cbTipIntervencije;
+		private FlowLayoutPanel flowLayoutPanel1;
+		private Button btnOmoguciIzmene;
+		private Button btnSacuvajPromene;
 
 		public DateTimePicker DateTimePicker { get => dateTimePicker; set => dateTimePicker = value; }
 		public TextBox TxtBrojPregleda { get => txtBrojPregleda; set => txtBrojPregleda = value; }
@@ -389,5 +434,7 @@ namespace View.UserControls
 		public Button BtnNazad { get => btnNazad; set => btnNazad = value; }
 		public Button BtnObrisiIzabrano { get => btnObrisiIzabrano; set => btnObrisiIzabrano = value; }
 		public ComboBox CbTipIntervencije { get => cbTipIntervencije; set => cbTipIntervencije = value; }
+		public Button BtnOmoguciIzmene { get => btnOmoguciIzmene; set => btnOmoguciIzmene = value; }
+		public Button BtnSacuvajPromene { get => btnSacuvajPromene; set => btnSacuvajPromene = value; }
 	}
 }

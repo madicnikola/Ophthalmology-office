@@ -118,6 +118,18 @@ namespace View.Communication
 			return (Pacijent)client.GetResponseResult();
 		}
 
+		internal Pregled updatePregled(Pregled p)
+		{
+			Zahtev request = new Zahtev
+			{
+				Operacija = Operacija.UpdateExamin,
+				Objekat = p
+			};
+
+			client.SendRequest(request);
+			return (Pregled)client.GetResponseResult();
+		}
+
 		internal List<IDomenskiObjekat> pretraziLekare(Lekar l)
 		{
 			Zahtev request = new Zahtev

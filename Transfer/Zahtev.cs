@@ -19,18 +19,19 @@ namespace Transfer
 		SaveDoctor,
 		SaveExamin,
 
+		SearchPacients,
+		SearchDoctors,
+		SearchExamin,
+
+		UpdatePacient,
+		UpdateDoctor,
+		UpdateExamin,
+
 		DeletePacient,
 		DeleteDoctor,
 		DeleteExamin,
 
-		UpdatePacient,
-		UpdateDoctor,
-		
-		GetAllInterventions,
-
-		SearchPacients,
-		SearchDoctors,
-		SearchExamin
+		GetAllInterventions
 	}
 
 	[Serializable]
