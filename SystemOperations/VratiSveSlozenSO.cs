@@ -63,33 +63,5 @@ namespace SistemskeOperacije
 			}
 
 		}
-
-		private void postaviPodDomen(List<IDomenskiObjekat> rezultat)
-		{
-			for (int i = 0; i < rezultat.Count;)
-			{
-				IDomenskiObjekat ido = rezultat[i];
-				IDomenskiObjekat podDomen = ido.VratiPodDomen();
-
-				while (podDomen != null)
-				{
-					podDomen.PostaviVrednost(broker.Pronadji(podDomen)[0]);
-
-					while (podDomen.VratiPodDomen() != null)
-					{
-						IDomenskiObjekat podPod = podDomen.VratiPodDomen();
-
-						podPod.PostaviVrednost(broker.Pronadji(podPod)[0]);
-						podDomen.PostaviVrednostPodDomena(podPod);
-					}
-
-					ido.PostaviVrednostPodDomena(podDomen);
-					podDomen = ido.VratiPodDomen();
-				}
-
-				i++;
-			}
-
-		}
 	}
 }

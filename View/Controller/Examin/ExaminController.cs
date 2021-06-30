@@ -237,14 +237,14 @@ namespace View.Controller
 					Lekar = UserControl.CbLekar.SelectedItem as Lekar,
 					StavkePregleda = stavkePregleda.ToList()
 				};
-				Console.WriteLine(pregled.DatumPregleda);
-				Console.WriteLine(pregled.BrojPregleda);
-				Console.WriteLine(pregled.Pacijent);
-				Console.WriteLine(pregled.Lekar);
-				foreach(StavkaPregleda sp in pregled.StavkePregleda){
-					Console.WriteLine(sp.Naziv);
-					Console.WriteLine(sp.TipIntervencije);
-				}
+				//Console.WriteLine(pregled.DatumPregleda);
+				//Console.WriteLine(pregled.BrojPregleda);
+				//Console.WriteLine(pregled.Pacijent);
+				//Console.WriteLine(pregled.Lekar);
+				//foreach(StavkaPregleda sp in pregled.StavkePregleda){
+				//	Console.WriteLine(sp.Naziv);
+				//	Console.WriteLine(sp.TipIntervencije);
+				//}
 
 				pregled = Communication.Communication.Instance.saveExamin(pregled);
 				if (pregled == null)

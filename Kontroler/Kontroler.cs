@@ -155,24 +155,7 @@ namespace SistenskeOperacije
 			so.IzvrsiSO(objekat);
 			return so.Result;
 		}
-	}
-
-	// *** SELECT ***
-
-
-
-
-	// *** INSERT ***
-
-
-
-
-	// *** DELETE ***
-
-
-
-
-	// *** OTHER ***                
+	}           
 
 
 }
