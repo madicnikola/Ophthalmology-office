@@ -106,7 +106,10 @@ namespace View.Controller
 			}
 			catch (SystemOperationException se)
 			{
+				if(preglediBindingList != null)
+				{
 				preglediBindingList.Clear();
+				}
 				MessageBox.Show(se.Message);
 
 			}

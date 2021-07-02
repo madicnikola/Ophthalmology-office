@@ -28,7 +28,7 @@ namespace Domen
 		#region ODO
 		[Browsable(false)]
 
-		public string NazivTabele => "KorisnikSistema";
+		public string NazivTabele => "korisnikSistema";
 		[Browsable(false)]
 
 		public string VrednostiZaInsert => $"'{Ime}', '{Prezime}', '{Username}', '{Password}'";
