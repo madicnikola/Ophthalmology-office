@@ -52,7 +52,7 @@ namespace SistenskeOperacije
 			try
 			{
 				os.IzvrsiSO(ido);
-				List<IDomenskiObjekat> lista = ((VratiSveSO)os).lista;
+				List<IDomenskiObjekat> lista = os.lista;
 				return lista;
 			}
 			catch (Exception e)
@@ -68,7 +68,7 @@ namespace SistenskeOperacije
 			try
 			{
 				os.IzvrsiSO(ido);
-				List<IDomenskiObjekat> lista = ((VratiSveSlozenSO)os).lista;
+				List<IDomenskiObjekat> lista = os.lista;
 				return lista;
 			}
 			catch (Exception e)

@@ -37,15 +37,14 @@ namespace View.Controller.Pacient
 
 				UserControl.BtnOmoguciIzmenu.Visible = false;
 				UserControl.BtnSacuvajPromene.Visible = false;
-				UserControl.BtnObrisi.Visible = false;
-
+				UserControl.BtnKartonPacijenta.Visible = false;
 			}
 			if (mode.Equals(UCMode.VIEW))
 			{
 				UserControl.BtnOmoguciIzmenu.Visible = true;
+				UserControl.BtnKartonPacijenta.Visible = true;
 				UserControl.BtnSacuvajPromene.Visible = false;
 				UserControl.BtnSacuvaj.Visible = false;
-				UserControl.BtnObrisi.Visible = false;
 				UserControl.BtnNazad.Visible = false;
 
 				populateFields();
@@ -55,13 +54,18 @@ namespace View.Controller.Pacient
 			{
 				UserControl.TxtBrojKartonaId.ReadOnly = true;
 				UserControl.BtnSacuvajPromene.Visible = true;
-				UserControl.BtnObrisi.Visible = false;
 				UserControl.BtnSacuvaj.Visible = false;
 				UserControl.BtnOmoguciIzmenu.Visible = false;
 				UserControl.BtnNazad.Visible = false;
+				UserControl.BtnKartonPacijenta.Visible = false;
 
 				disableFieldsReadOnly();
 			}
+		}
+
+		internal void otvoriKartonPacijenta(object sender, EventArgs e)
+		{
+			mainController.otvoriKartonPacijenta(Pacijent);
 		}
 
 		internal void update(object sender, EventArgs e)

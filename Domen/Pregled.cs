@@ -107,10 +107,16 @@ namespace Domen
 			if (Kriterijumi.Contains("PregledId"))
 			{
 				return $"DatumPregleda = '{(DateTime)Kriterijumi["DatumPregleda"]}' OR PregledId = {Kriterijumi["PregledId"]}";
-			}else
-				return $"DatumPregleda = '{(DateTime)Kriterijumi["DatumPregleda"]}'";
+			}else if (Kriterijumi.Contains("BrojKartonaId"))
+            {
+				return $"BrojKartonaId = '{Kriterijumi["BrojKartonaId"]}'";
+            }
+            else
+            {
+                return $"DatumPregleda = '{(DateTime)Kriterijumi["DatumPregleda"]}'";
+            }
 
-		}
+        }
 
 		public List<IDomenskiObjekat> VratiListu(SqlDataReader reader)
         {

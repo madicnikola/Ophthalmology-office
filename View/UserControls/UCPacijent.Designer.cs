@@ -49,9 +49,9 @@ namespace View.UserControls
 			this.btnSacuvaj = new System.Windows.Forms.Button();
 			this.btnOmoguciIzmenu = new System.Windows.Forms.Button();
 			this.btnSacuvajPromene = new System.Windows.Forms.Button();
-			this.btnObrisi = new System.Windows.Forms.Button();
 			this.btnNazad = new System.Windows.Forms.Button();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.btnKartonPacijenta = new System.Windows.Forms.Button();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -222,7 +222,7 @@ namespace View.UserControls
 			// 
 			this.btnSacuvaj.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSacuvaj.Location = new System.Drawing.Point(562, 2);
+			this.btnSacuvaj.Location = new System.Drawing.Point(609, 2);
 			this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSacuvaj.Name = "btnSacuvaj";
 			this.btnSacuvaj.Size = new System.Drawing.Size(115, 34);
@@ -235,7 +235,7 @@ namespace View.UserControls
 			// 
 			this.btnOmoguciIzmenu.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnOmoguciIzmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnOmoguciIzmenu.Location = new System.Drawing.Point(409, 2);
+			this.btnOmoguciIzmenu.Location = new System.Drawing.Point(456, 2);
 			this.btnOmoguciIzmenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnOmoguciIzmenu.Name = "btnOmoguciIzmenu";
 			this.btnOmoguciIzmenu.Size = new System.Drawing.Size(147, 34);
@@ -248,7 +248,7 @@ namespace View.UserControls
 			// 
 			this.btnSacuvajPromene.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSacuvajPromene.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSacuvajPromene.Location = new System.Drawing.Point(246, 2);
+			this.btnSacuvajPromene.Location = new System.Drawing.Point(293, 2);
 			this.btnSacuvajPromene.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSacuvajPromene.Name = "btnSacuvajPromene";
 			this.btnSacuvajPromene.Size = new System.Drawing.Size(157, 34);
@@ -257,23 +257,11 @@ namespace View.UserControls
 			this.btnSacuvajPromene.UseVisualStyleBackColor = true;
 			this.btnSacuvajPromene.Click += new System.EventHandler(this.btnSacuvajPromene_Click);
 			// 
-			// btnObrisi
-			// 
-			this.btnObrisi.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnObrisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnObrisi.Location = new System.Drawing.Point(125, 2);
-			this.btnObrisi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.btnObrisi.Name = "btnObrisi";
-			this.btnObrisi.Size = new System.Drawing.Size(115, 34);
-			this.btnObrisi.TabIndex = 25;
-			this.btnObrisi.Text = "Obrisi";
-			this.btnObrisi.UseVisualStyleBackColor = true;
-			// 
 			// btnNazad
 			// 
 			this.btnNazad.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnNazad.Location = new System.Drawing.Point(4, 2);
+			this.btnNazad.Location = new System.Drawing.Point(3, 2);
 			this.btnNazad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnNazad.Name = "btnNazad";
 			this.btnNazad.Size = new System.Drawing.Size(115, 34);
@@ -289,13 +277,26 @@ namespace View.UserControls
 			this.flowLayoutPanel1.Controls.Add(this.btnSacuvaj);
 			this.flowLayoutPanel1.Controls.Add(this.btnOmoguciIzmenu);
 			this.flowLayoutPanel1.Controls.Add(this.btnSacuvajPromene);
-			this.flowLayoutPanel1.Controls.Add(this.btnObrisi);
+			this.flowLayoutPanel1.Controls.Add(this.btnKartonPacijenta);
 			this.flowLayoutPanel1.Controls.Add(this.btnNazad);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(143, 532);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(96, 532);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(680, 47);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(727, 47);
 			this.flowLayoutPanel1.TabIndex = 27;
+			// 
+			// btnKartonPacijenta
+			// 
+			this.btnKartonPacijenta.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnKartonPacijenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnKartonPacijenta.Location = new System.Drawing.Point(124, 2);
+			this.btnKartonPacijenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.btnKartonPacijenta.Name = "btnKartonPacijenta";
+			this.btnKartonPacijenta.Size = new System.Drawing.Size(163, 34);
+			this.btnKartonPacijenta.TabIndex = 28;
+			this.btnKartonPacijenta.Text = "Karton Pacijenta";
+			this.btnKartonPacijenta.UseVisualStyleBackColor = true;
+			this.btnKartonPacijenta.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// UCPacijent
 			// 
@@ -348,9 +349,9 @@ namespace View.UserControls
 		private Button btnSacuvaj;
 		private Button btnOmoguciIzmenu;
 		private Button btnSacuvajPromene;
-		private Button btnObrisi;
 		private Button btnNazad;
 		private FlowLayoutPanel flowLayoutPanel1;
+		private Button btnKartonPacijenta;
 
 		public Label LblBrojKartonaId { get => lblBrojKartonaId; set => lblBrojKartonaId = value; }
 		public Label LblIme { get => lblIme; set => lblIme = value; }
@@ -371,7 +372,7 @@ namespace View.UserControls
 		public Button BtnSacuvaj { get => btnSacuvaj; set => btnSacuvaj = value; }
 		public Button BtnOmoguciIzmenu { get => btnOmoguciIzmenu; set => btnOmoguciIzmenu = value; }
 		public Button BtnSacuvajPromene { get => btnSacuvajPromene; set => btnSacuvajPromene = value; }
-		public Button BtnObrisi { get => btnObrisi; set => btnObrisi = value; }
 		public Button BtnNazad { get => btnNazad; set => btnNazad = value; }
-	}
+        public Button BtnKartonPacijenta { get => btnKartonPacijenta; set => btnKartonPacijenta = value; }
+    }
 }

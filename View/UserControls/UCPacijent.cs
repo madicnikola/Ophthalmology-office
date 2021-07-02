@@ -32,5 +32,10 @@ namespace View.UserControls
 		{
 			PacientController.update(sender,e);
 		}
+
+		private void button2_Click(object sender, System.EventArgs e)
+		{
+			PacientController.otvoriKartonPacijenta(sender,e);
+		}
 	}
 }

@@ -93,6 +93,31 @@ namespace View.Controller
 			
 		}
 
+        public void pretraziPregledeZaKartonPacijenta(Pacijent pacijent)
+		{
+			Pregled pregled = new Pregled();
+			try
+			{
+				pregled.Kriterijumi = new Dictionary<string, object>();
+				pregled.Kriterijumi.Add("BrojKartonaId", pacijent.BrojKartonaId);
+				preglediBindingList = ListConverter
+						.convert<Pregled, IDomenskiObjekat>(Communication.Communication.Instance.pretraziPreglede(pregled));
+				UserControl.DgvSviPregledi.DataSource = preglediBindingList;
+			}
+			catch (SystemOperationException se)
+			{
+				preglediBindingList.Clear();
+				MessageBox.Show(se.Message);
+
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Pregled ID mora biti broj");
+				Console.WriteLine(ex.StackTrace);
+			}
+
+		}
+
 		internal void refresh()
 		{
 			preglediBindingList = ListConverter.convert<Pregled, IDomenskiObjekat>(Communication.Communication.Instance.GetAllExamins());
@@ -116,6 +141,16 @@ namespace View.Controller
 			UserControl = new UCPregledi(this);
 			InitUCAllExamins(UserControl as UCPregledi);
 			prepareUC(mode);
+
+			return UserControl;
+		}
+		internal UserControl openKartonPacijenta(Pacijent pacijent)
+		{
+			UserControl = new UCPregledi(this);
+			pretraziPregledeZaKartonPacijenta(pacijent);
+
+			nameColumns();
+			resizeColumns();
 
 			return UserControl;
 		}

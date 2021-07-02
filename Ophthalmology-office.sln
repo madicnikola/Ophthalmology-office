@@ -16,8 +16,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resursi", "Resursi", "{43FF2BE8-5AB8-4225-B3CE-F559077CE728}"
 	ProjectSection(SolutionItems) = preProject
 		opth-ico.ico = opth-ico.ico
-		View\Exceptions\ServerException.cs = View\Exceptions\ServerException.cs
-		View\Exceptions\SystemOperationException.cs = View\Exceptions\SystemOperationException.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientDir", "ClientDir", "{7731B30B-AA19-4E7F-A9DF-4A38068F7D9F}"

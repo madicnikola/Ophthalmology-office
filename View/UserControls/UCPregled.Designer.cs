@@ -299,7 +299,7 @@ namespace View.UserControls
 			// 
 			this.btnSacuvaj.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSacuvaj.Location = new System.Drawing.Point(509, 2);
+			this.btnSacuvaj.Location = new System.Drawing.Point(441, 2);
 			this.btnSacuvaj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSacuvaj.Name = "btnSacuvaj";
 			this.btnSacuvaj.Size = new System.Drawing.Size(115, 34);
@@ -312,7 +312,7 @@ namespace View.UserControls
 			// 
 			this.btnNazad.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnNazad.Location = new System.Drawing.Point(76, 2);
+			this.btnNazad.Location = new System.Drawing.Point(8, 2);
 			this.btnNazad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnNazad.Name = "btnNazad";
 			this.btnNazad.Size = new System.Drawing.Size(115, 34);
@@ -328,16 +328,16 @@ namespace View.UserControls
 			this.flowLayoutPanel1.Controls.Add(this.btnSacuvajPromene);
 			this.flowLayoutPanel1.Controls.Add(this.btnNazad);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(428, 566);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(496, 566);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(627, 40);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(559, 40);
 			this.flowLayoutPanel1.TabIndex = 35;
 			// 
 			// btnOmoguciIzmene
 			// 
 			this.btnOmoguciIzmene.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnOmoguciIzmene.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnOmoguciIzmene.Location = new System.Drawing.Point(353, 2);
+			this.btnOmoguciIzmene.Location = new System.Drawing.Point(285, 2);
 			this.btnOmoguciIzmene.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnOmoguciIzmene.Name = "btnOmoguciIzmene";
 			this.btnOmoguciIzmene.Size = new System.Drawing.Size(150, 34);
@@ -350,7 +350,7 @@ namespace View.UserControls
 			// 
 			this.btnSacuvajPromene.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnSacuvajPromene.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSacuvajPromene.Location = new System.Drawing.Point(197, 2);
+			this.btnSacuvajPromene.Location = new System.Drawing.Point(129, 2);
 			this.btnSacuvajPromene.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.btnSacuvajPromene.Name = "btnSacuvajPromene";
 			this.btnSacuvajPromene.Size = new System.Drawing.Size(150, 34);

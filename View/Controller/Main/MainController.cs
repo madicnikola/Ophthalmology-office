@@ -68,6 +68,19 @@ namespace View.Controller
 			frmMain.SetPanel(allPacientsController.open(mode));
 		}
 
+		internal void otvoriKartonPacijenta(Pacijent pacijent)
+		{
+			if (AllExaminController == null)
+			{
+				AllExaminController = new AllExaminController(this);
+			}
+			if (dialogController == null)
+			{
+				dialogController = new DialogController(this);
+			}
+			MainCoordinator.Instance.OpenDialog(AllExaminController.openKartonPacijenta(pacijent));
+		}
+
 		internal void OpenUCLekar(FrmMain frmMain, UCMode mode)
 		{
 			if (doctorController == null)
